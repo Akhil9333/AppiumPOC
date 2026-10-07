@@ -1,0 +1,25 @@
+# Copy this file to `lambdatest.properties` in the project root
+# or to `src/test/resources/lambdatest.properties` and replace the placeholders.
+
+LT_USERNAME=YOUR_USERNAME
+LT_ACCESS_KEY=YOUR_ACCESS_KEY
+
+# App login settings (use dedicated test accounts)
+APP_USERNAME=YOUR_APP_TEST_USERNAME
+APP_PASSWORD=YOUR_APP_TEST_PASSWORD
+MHA_USERNAME=YOUR_MHA_TEST_USERNAME
+LOCKOUT_USERNAME=YOUR_LOCKOUT_TEST_USERNAME
+APP_INCORRECT_PASSWORD=YOUR_INTENTIONALLY_INCORRECT_PASSWORD
+
+# Optional overrides
+# LT_GRID_URL=mobile-hub.lambdatest.com
+# LT_BUILD_NAME=Local IntelliJ Run
+# LT_TEST_NAME=Manual Test Run
+# LT_PROJECT_NAME=Mobile Appium
+# platform=iOS
+# device=iPhone 15
+# version=17
+# appId=lt://APP...
+# LT_ANDROID_APP_ID=lt://APP...
+# LT_IOS_APP_ID=lt://APP...
+# LT_ARTIFACTS_DIR=target/test-artifacts

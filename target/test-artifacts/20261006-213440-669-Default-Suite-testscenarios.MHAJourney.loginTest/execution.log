@@ -1,0 +1,14 @@
+[2026-10-06 21:34:40.678] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-213440-669-Default-Suite-testscenarios.MHAJourney.loginTest
+[2026-10-06 21:34:40.678] Starting test execution.
+[2026-10-06 21:34:40.679] Parameters: [iPhone 14.*, .*, iOS]
+[2026-10-06 21:34:40.679] MHA Low Rish user.
+[2026-10-06 21:34:41.009] Validated welcome message on landing screen.
+[2026-10-06 21:34:41.856] Navigated from welcome screen to healthy living screen.
+[2026-10-06 21:34:43.419] Opened login screen.
+[2026-10-06 21:34:49.634] Entered username.
+[2026-10-06 21:34:55.397] Entered password.
+[2026-10-06 21:34:56.348] Clicked submit button on login screen.
+[2026-10-06 21:35:02.549] Validated home screen greeting message.
+[2026-10-06 21:35:02.550] Screenshot skipped for 'home-screen' because AppiumDriver is not available.
+[2026-10-06 21:35:03.925] Opened activity tab.
+[2026-10-06 21:35:04.410] Validated activity header.

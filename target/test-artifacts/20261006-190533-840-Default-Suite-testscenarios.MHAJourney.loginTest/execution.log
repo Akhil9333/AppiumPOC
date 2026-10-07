@@ -1,0 +1,74 @@
+[2026-10-06 19:05:33.843] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-190533-840-Default-Suite-testscenarios.MHAJourney.loginTest
+[2026-10-06 19:05:33.843] Starting test execution.
+[2026-10-06 19:05:33.843] Parameters: [Galaxy S.*, .*, android]
+[2026-10-06 19:05:33.845] MHA Journey.
+[2026-10-06 19:05:34.722] Validated welcome message on landing screen.
+[2026-10-06 19:05:34.901] Navigated from welcome screen to healthy living screen.
+[2026-10-06 19:05:36.439] Opened login screen.
+[2026-10-06 19:05:40.101] Entered username.
+[2026-10-06 19:05:43.483] Entered password.
+[2026-10-06 19:05:45.031] Clicked submit button on login screen.
+[2026-10-06 19:05:48.855] Dismissed notification popup.
+[2026-10-06 19:05:52.083] Accepted runtime permission dialog.
+[2026-10-06 19:05:53.286] Validated home screen greeting message.
+[2026-10-06 19:05:53.286] Screenshot skipped for 'home-screen' because AppiumDriver is not available.
+[2026-10-06 19:05:53.481] Opened activity tab.
+[2026-10-06 19:05:55.485] Validated activity header.
+[2026-10-06 19:05:57.919] Scrolled and opened MHA feed card.
+[2026-10-06 19:05:59.477] Validated MHA screen header.
+[2026-10-06 19:05:59.626] Validated initial MHA points.
+[2026-10-06 19:05:59.759] Validated initial MHA time.
+[2026-10-06 19:06:01.297] Clicked MHA start button.
+[2026-10-06 19:06:03.423] Clicked 'I understand' on data privacy screen.
+[2026-10-06 19:06:03.632] Clicked start button on MHA questions screen.
+[2026-10-06 19:11:05.633] Attached Appium session: b848147d-f152-4637-aa09-eb4b963cee11
+[2026-10-06 19:11:06.175] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-190533-840-Default-Suite-testscenarios.MHAJourney.loginTest/20261006-191106-149-listener-failure.png
+[2026-10-06 19:11:06.641] Saved page source: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-190533-840-Default-Suite-testscenarios.MHAJourney.loginTest/20261006-191106-639-listener-failure.xml
+[2026-10-06 19:11:06.642] Test failed: TimeoutException - Expected condition failed: waiting for condition (visibility of element located by By.xpath: //*[@resource-id='btn_ctrl_btnnextquestion']) to be refreshed (tried for 300 second(s) with 500 milliseconds interval)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities {appium:adbExecTimeout: 120000, appium:appActivity: com.vitality.gutenberg.Main..., appium:appPackage: com.vitalityactive.assetadv..., appium:autoAcceptAlerts: true, appium:automationName: uiautomator2, appium:chromeOptions: {args: []}, appium:chromedriverExecutableDir: /appium/assets/drivers/chro..., appium:chromedriverPorts: [[11001, 11049]], appium:databaseEnabled: false, appium:desired: {adbExecTimeout: 120000, appActivity: com.vitality.gutenberg.Main..., appPackage: com.vitalityactive.assetadv..., autoAcceptAlerts: true, automationName: uiautomator2, chromeOptions: {args: []}, chromedriverExecutableDir: /appium/assets/drivers/chro..., chromedriverPorts: [[11001, 11049]], deviceName: Galaxy S23, enableWebviewDetailsCollection: false, ensureWebviewsHavePages: false, headless: false, mode: cloud, nativeWebScreenshot: true, newCommandTimeout: 0, noReset: false, orientation: PORTRAIT, platformName: android, platformVersion: 13, skipLogcatCapture: true, systemPort: 12346, udid: RFCW404TSNB, uiautomator2ServerLaunchTimeout: 60000, waitForQuiescence: false}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SC-51D, appium:deviceName: RFCW404TSNB, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: RFCW404TSNB, appium:enableWebviewDetailsCollection: false, appium:ensureWebviewsHavePages: false, appium:headless: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:mode: cloud, appium:nativeWebScreenshot: true, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: false, appium:orientation: PORTRAIT, appium:pixelRatio: 3, appium:platformVersion: 13, appium:skipLogcatCapture: true, appium:statBarHeight: 81, appium:systemPort: 12346, appium:takesScreenshot: true, appium:udid: RFCW404TSNB, appium:uiautomator2ServerLaunchTimeout: 60000, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:waitForQuiescence: false, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: b848147d-f152-4637-aa09-eb4b963cee11
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for condition (visibility of element located by By.xpath: //*[@resource-id='btn_ctrl_btnnextquestion']) to be refreshed (tried for 300 second(s) with 500 milliseconds interval)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities {appium:adbExecTimeout: 120000, appium:appActivity: com.vitality.gutenberg.Main..., appium:appPackage: com.vitalityactive.assetadv..., appium:autoAcceptAlerts: true, appium:automationName: uiautomator2, appium:chromeOptions: {args: []}, appium:chromedriverExecutableDir: /appium/assets/drivers/chro..., appium:chromedriverPorts: [[11001, 11049]], appium:databaseEnabled: false, appium:desired: {adbExecTimeout: 120000, appActivity: com.vitality.gutenberg.Main..., appPackage: com.vitalityactive.assetadv..., autoAcceptAlerts: true, automationName: uiautomator2, chromeOptions: {args: []}, chromedriverExecutableDir: /appium/assets/drivers/chro..., chromedriverPorts: [[11001, 11049]], deviceName: Galaxy S23, enableWebviewDetailsCollection: false, ensureWebviewsHavePages: false, headless: false, mode: cloud, nativeWebScreenshot: true, newCommandTimeout: 0, noReset: false, orientation: PORTRAIT, platformName: android, platformVersion: 13, skipLogcatCapture: true, systemPort: 12346, udid: RFCW404TSNB, uiautomator2ServerLaunchTimeout: 60000, waitForQuiescence: false}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SC-51D, appium:deviceName: RFCW404TSNB, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: RFCW404TSNB, appium:enableWebviewDetailsCollection: false, appium:ensureWebviewsHavePages: false, appium:headless: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:mode: cloud, appium:nativeWebScreenshot: true, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: false, appium:orientation: PORTRAIT, appium:pixelRatio: 3, appium:platformVersion: 13, appium:skipLogcatCapture: true, appium:statBarHeight: 81, appium:systemPort: 12346, appium:takesScreenshot: true, appium:udid: RFCW404TSNB, appium:uiautomator2ServerLaunchTimeout: 60000, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:waitForQuiescence: false, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: b848147d-f152-4637-aa09-eb4b963cee11
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at genericUtils.MobileSessionInit.waitForVisibleElement(MobileSessionInit.java:71)
+	at genericUtils.MobileSessionInit.clickElement(MobileSessionInit.java:89)
+	at screens.BaseScreen.click(BaseScreen.java:32)
+	at screens.MHAQuestionsScreen.clickQuestionNextButton(MHAQuestionsScreen.java:34)
+	at screens.MHAQuestionsScreen.completeAssessment(MHAQuestionsScreen.java:104)
+	at screens.MHAQuestionsScreen.completeAssessment(MHAQuestionsScreen.java:117)
+	at screens.MHAQuestionsScreen.completeAssessmentFromResource(MHAQuestionsScreen.java:135)
+	at testscenarios.MHAJourney.loginTest(MHAJourney.java:111)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:67)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+[2026-10-06 19:11:06.645] Execution status: FAILED | Artifacts: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-190533-840-Default-Suite-testscenarios.MHAJourney.loginTest

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppiumAUT>
+  <XCUIElementTypeApplication type="XCUIElementTypeApplication" value="11111" name="Gutenberg Central App" label="Gutenberg Central App" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="926" index="0">
+    <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="926" index="0">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="926" index="0">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="926" index="0">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="926" index="0">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="926" index="0">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="926" index="0"/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="926" index="1">
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="926" index="0"/>
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="926" index="1">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="926" index="0"/>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="812" index="1">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="812" index="0"/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="812" index="1">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="428" height="812" index="0"/>
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="47" width="428" height="765" index="1">
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="47" width="428" height="765" index="0"/>
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="47" width="428" height="765" index="1">
+                          <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" enabled="true" visible="false" accessible="true" x="0" y="47" width="428" height="765" index="0"/>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="47" width="428" height="524" index="1">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="vertical_expandable_container" label="Physical activity and fitness&#10;Sleep&#10;Assessments&#10;Prevention&#10;Other Activities" enabled="true" visible="true" accessible="true" x="0" y="47" width="428" height="524" index="0"/>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="16" y="-203" width="396" height="146" index="1">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="16" y="-203" width="396" height="146" index="0"/>
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="1">
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="0"/>
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="1">
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="Mental Health Assessment Tracking Card_2" label="Mental health assessment" enabled="true" visible="false" accessible="true" x="0" y="0" width="0" height="0" index="0"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="image_activity_card_Mental Health Assessment Tracking Card_2" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="1"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="vg_star_icon_Mental Health Assessment Tracking Card_2" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="2"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Mental health assessment" name="activity_card_activity_name_Mental Health Assessment Tracking Card_2" label="Mental health assessment" enabled="true" visible="false" accessible="true" x="0" y="0" width="0" height="0" index="3"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="0/600 POINTS" name="points_tracker_text_Mental Health Assessment Tracking Card_2" label="0/600 POINTS" enabled="true" visible="false" accessible="true" x="0" y="0" width="0" height="0" index="4"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Takes &lt;&lt;less than 5&gt;&gt; minutes to complete" name="activity_card_sub_text_Mental Health Assessment Tracking Card_2" label="Takes &lt;&lt;less than 5&gt;&gt; minutes to complete" enabled="true" visible="false" accessible="true" x="0" y="0" width="0" height="0" index="5"/>
+                                </XCUIElementTypeOther>
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="2">
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="Health Assessment Completed Card_4" label="Health assessment" enabled="true" visible="false" accessible="true" x="0" y="0" width="0" height="0" index="0"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="image_activity_card_Health Assessment Completed Card_4" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="1"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="vg_star_icon_Health Assessment Completed Card_4" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="2"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Health assessment" name="activity_card_activity_name_Health Assessment Completed Card_4" label="Health assessment" enabled="true" visible="false" accessible="true" x="0" y="0" width="0" height="0" index="3"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Completed on October 5, 2026" name="activity_card_sub_text_Health Assessment Completed Card_4" label="Completed on October 5, 2026" enabled="true" visible="false" accessible="true" x="0" y="0" width="0" height="0" index="4"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="1,500/1,500 POINTS" name="points_tracker_text_Health Assessment Completed Card_4" label="1,500/1,500 POINTS" enabled="true" visible="false" accessible="true" x="0" y="0" width="0" height="0" index="5"/>
+                                </XCUIElementTypeOther>
+                              </XCUIElementTypeOther>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="2">
+                              <XCUIElementTypeButton type="XCUIElementTypeButton" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="0"/>
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="1">
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="true" x="0" y="0" width="0" height="0" index="0"/>
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="1">
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="vg_expansion_tile" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="0"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="vertical_scroll_header_title_-1" label="Prevention" enabled="true" visible="false" accessible="true" x="0" y="0" width="0" height="0" index="1"/>
+                                </XCUIElementTypeOther>
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="0" height="0" index="2"/>
+                              </XCUIElementTypeOther>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="47" width="396" height="198" index="3">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="47" width="396" height="198" index="0"/>
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="47" width="396" height="198" index="1">
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="47" width="396" height="198" index="0"/>
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="47" width="396" height="88" index="1">
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="Health Check Tracking_1" label="Health Check" enabled="true" visible="true" accessible="true" x="16" y="47" width="396" height="88" index="0"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="image_activity_card_Health Check Tracking_1" enabled="true" visible="true" accessible="false" x="33" y="64" width="48" height="48" index="1"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="vg_star_icon_Health Check Tracking_1" enabled="true" visible="true" accessible="false" x="97" y="60" width="14" height="12" index="2"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Health Check" name="activity_card_activity_name_Health Check Tracking_1" label="Health Check" enabled="true" visible="true" accessible="true" x="97" y="78" width="117" height="20" index="3"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="0/10,000 POINTS" name="points_tracker_text_Health Check Tracking_1" label="0/10,000 POINTS" enabled="true" visible="true" accessible="true" x="114" y="58" width="281" height="16" index="4"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Earn additional points for further submissions" name="activity_card_sub_text_Health Check Tracking_1" label="Earn additional points for further submissions" enabled="true" visible="true" accessible="true" x="97" y="102" width="269" height="16" index="5"/>
+                                </XCUIElementTypeOther>
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="151" width="396" height="94" index="2">
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="Screenings Vaccinations Tracking_2" label="Screenings and vaccinations" enabled="true" visible="true" accessible="true" x="16" y="151" width="396" height="94" index="0"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="image_activity_card_Screenings Vaccinations Tracking_2" enabled="true" visible="true" accessible="false" x="33" y="174" width="48" height="48" index="1"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="vg_star_icon_Screenings Vaccinations Tracking_2" enabled="true" visible="true" accessible="false" x="97" y="170" width="14" height="12" index="2"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Screenings and vaccinations" name="activity_card_activity_name_Screenings Vaccinations Tracking_2" label="Screenings and vaccinations" enabled="true" visible="true" accessible="true" x="97" y="188" width="249" height="20" index="3"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="0/4,000 POINTS" name="points_tracker_text_Screenings Vaccinations Tracking_2" label="0/4,000 POINTS" enabled="true" visible="true" accessible="true" x="114" y="168" width="281" height="16" index="4"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Submit completed form from healthcare provider" name="activity_card_sub_text_Screenings Vaccinations Tracking_2" label="Submit completed form from healthcare provider" enabled="true" visible="true" accessible="true" x="97" y="212" width="288" height="16" index="5"/>
+                                </XCUIElementTypeOther>
+                              </XCUIElementTypeOther>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="285" width="396" height="58" index="4">
+                              <XCUIElementTypeButton type="XCUIElementTypeButton" enabled="true" visible="true" accessible="false" x="16" y="285" width="396" height="58" index="0"/>
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="286" width="396" height="56" index="1">
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="true" x="16" y="286" width="396" height="56" index="0"/>
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="302" width="356" height="24" index="1">
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="vg_expansion_tile" enabled="true" visible="true" accessible="false" x="16" y="302" width="356" height="24" index="0"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="vertical_scroll_header_title_-1" label="Other Activities" enabled="true" visible="true" accessible="true" x="16" y="302" width="153" height="24" index="1"/>
+                                </XCUIElementTypeOther>
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="388" y="302" width="24" height="24" index="2"/>
+                              </XCUIElementTypeOther>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="359" width="396" height="180" index="5">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="16" y="359" width="396" height="180" index="0"/>
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="16" y="359" width="396" height="180" index="1">
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="16" y="359" width="396" height="180" index="0"/>
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="359" width="396" height="82" index="1">
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="VGActivityCard" enabled="true" visible="true" accessible="false" x="16" y="359" width="396" height="82" index="0"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="image_activity_card_Other Activity 1_0" enabled="true" visible="false" accessible="false" x="33" y="376" width="48" height="48" index="1"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Other Activity" name="activity_card_activity_name_Other Activity 1_0" label="Other Activity" enabled="true" visible="true" accessible="true" x="97" y="382" width="121" height="20" index="2"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Submit completed form from healthcare provider" name="activity_card_sub_text_Other Activity 1_0" label="Submit completed form from healthcare provider" enabled="true" visible="true" accessible="true" x="97" y="406" width="288" height="16" index="3"/>
+                                </XCUIElementTypeOther>
+                                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="16" y="457" width="396" height="82" index="2">
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="VGActivityCard" enabled="true" visible="true" accessible="false" x="16" y="457" width="396" height="82" index="0"/>
+                                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="image_activity_card_Other Activity 2_0" enabled="true" visible="false" accessible="false" x="33" y="474" width="48" height="48" index="1"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Other Activity" name="activity_card_activity_name_Other Activity 2_0" label="Other Activity" enabled="true" visible="true" accessible="true" x="97" y="480" width="121" height="20" index="2"/>
+                                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Submit completed form from healthcare provider" name="activity_card_sub_text_Other Activity 2_0" label="Submit completed form from healthcare provider" enabled="true" visible="true" accessible="true" x="97" y="504" width="288" height="16" index="3"/>
+                                </XCUIElementTypeOther>
+                              </XCUIElementTypeOther>
+                            </XCUIElementTypeOther>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="571" width="428" height="24" index="2"/>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="595" width="428" height="61" index="3">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="VGLeftIconText" enabled="true" visible="true" accessible="false" x="0" y="595" width="428" height="61" index="0"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Points history" name="txtpointshistory_001" label="Points history" enabled="true" visible="true" accessible="true" x="20" y="615" width="364" height="20" index="1"/>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="656" width="428" height="60" index="4">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="VGLeftIconText" enabled="true" visible="true" accessible="false" x="0" y="656" width="428" height="60" index="0"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Related FAQs" name="ctrl_btnrelatedfaqs_001" label="Related FAQs" enabled="true" visible="true" accessible="true" x="20" y="676" width="364" height="20" index="1"/>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="While the Vitality programme is based on state-of-the-art science, it can’t replace the advice of a healthcare provider. We encourage you to speak with a provider about your health results. We value your privacy and will keep your information secure." name="txt_footer_001" label="While the Vitality programme is based on state-of-the-art science, it can’t replace the advice of a healthcare provider. We encourage you to speak with a provider about your health results. We value your privacy and will keep your information secure." enabled="true" visible="true" accessible="true" x="0" y="716" width="428" height="96" index="5"/>
+                        </XCUIElementTypeOther>
+                      </XCUIElementTypeOther>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                  <XCUIElementTypeButton type="XCUIElementTypeButton" name="vg_icon_bottom_nav_bar_house_blank" label="Home&#10;Tab 1 of 5" enabled="true" visible="true" accessible="true" x="0" y="817" width="86" height="70" index="2"/>
+                  <XCUIElementTypeButton type="XCUIElementTypeButton" value="1" name="vg_icon_bottom_nav_bar_clip_board_check" label="Activities&#10;Tab 2 of 5" enabled="true" visible="true" accessible="true" x="85" y="817" width="87" height="70" index="3"/>
+                  <XCUIElementTypeButton type="XCUIElementTypeButton" name="vg_icon_bottom_nav_bar_gift_card" label="Rewards&#10;Tab 3 of 5" enabled="true" visible="true" accessible="true" x="171" y="817" width="86" height="70" index="4"/>
+                  <XCUIElementTypeButton type="XCUIElementTypeButton" name="vg_icon_bottom_nav_bar_heart" label="Health&#10;Tab 4 of 5" enabled="true" visible="true" accessible="true" x="256" y="817" width="87" height="70" index="5"/>
+                  <XCUIElementTypeButton type="XCUIElementTypeButton" name="vg_icon_bottom_nav_bar_circle_user" label="Profile&#10;Tab 5 of 5" enabled="true" visible="true" accessible="true" x="342" y="817" width="86" height="70" index="6"/>
+                </XCUIElementTypeOther>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeWindow>
+    <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="false" accessible="false" x="0" y="0" width="428" height="926" index="1">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="428" height="926" index="0">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="428" height="926" index="0"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="926" width="428" height="243" index="1"/>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeWindow>
+  </XCUIElementTypeApplication>
+</AppiumAUT>

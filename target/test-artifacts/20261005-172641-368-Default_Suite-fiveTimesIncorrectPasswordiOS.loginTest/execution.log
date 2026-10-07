@@ -1,0 +1,9 @@
+[2026-10-05 17:26:41.371] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-172641-368-Default_Suite-fiveTimesIncorrectPasswordiOS.loginTest
+[2026-10-05 17:26:41.371] Starting test execution.
+[2026-10-05 17:26:41.371] Parameters: [iPhone 12 .*, .*, iOS]
+[2026-10-05 17:26:41.372] Running five incorrect password attempts scenario.
+[2026-10-05 17:26:41.758] Validated welcome message on landing screen.
+[2026-10-05 17:26:42.641] Navigated from welcome screen to healthy living screen.
+[2026-10-05 17:26:44.113] Opened login screen.
+[2026-10-05 17:26:49.706] Entered username.
+[2026-10-05 17:26:58.241] Submitted login form attempt 1.

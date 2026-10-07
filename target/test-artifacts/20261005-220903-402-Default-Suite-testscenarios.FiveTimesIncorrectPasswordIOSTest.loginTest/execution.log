@@ -1,0 +1,32 @@
+[2026-10-05 22:09:03.403] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-220903-402-Default-Suite-testscenarios.FiveTimesIncorrectPasswordIOSTest.loginTest
+[2026-10-05 22:09:03.404] Starting test execution.
+[2026-10-05 22:09:03.404] Parameters: [iPhone 14  .*, .*, iOS]
+[2026-10-05 22:09:03.404] Running five incorrect password attempts scenario.
+[2026-10-05 22:09:03.713] Validated welcome message on landing screen.
+[2026-10-05 22:09:04.530] Navigated from welcome screen to healthy living screen.
+[2026-10-05 22:09:05.991] Opened login screen.
+[2026-10-05 22:09:11.971] Entered username.
+[2026-10-05 22:09:19.052] Login Button 1.
+[2026-10-05 22:09:19.890] Validated incorrect password message for attempt 1.
+[2026-10-05 22:09:20.808] Got It Button 1.
+[2026-10-05 22:09:22.053] Login Button 2.
+[2026-10-05 22:09:22.911] Validated incorrect password message for attempt 2.
+[2026-10-05 22:09:23.798] Got It Button 2.
+[2026-10-05 22:09:24.956] Login Button 3.
+[2026-10-05 22:09:25.850] Validated incorrect password message for attempt 3.
+[2026-10-05 22:09:26.775] Got It Button 3.
+[2026-10-05 22:09:27.797] Login Button 4.
+[2026-10-05 22:09:28.858] Validated incorrect password message for attempt 4.
+[2026-10-05 22:09:29.729] Got It Button 4.
+[2026-10-05 22:09:30.720] Login Button 5.
+[2026-10-05 22:09:32.511] Validated incorrect password message for attempt 5.
+[2026-10-05 22:09:33.537] Got It Button 5.
+[2026-10-05 22:09:34.563] Login Button 6.
+[2026-10-05 22:09:35.705] Validated account lockout message after five incorrect password attempts.
+[2026-10-05 22:09:36.627] Dismissed account lockout message.
+[2026-10-05 22:09:36.628] Screenshot skipped for 'five-times-incorrect-password' because AppiumDriver is not available.
+[2026-10-05 22:09:36.628] Completed five times incorrect password test.
+[2026-10-05 22:09:36.630] Attached Appium session: a441ec6b-2b84-4471-a6a9-666ffb317775
+[2026-10-05 22:09:37.239] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-220903-402-Default-Suite-testscenarios.FiveTimesIncorrectPasswordIOSTest.loginTest/20261005-220937-234-test-passed.png
+[2026-10-05 22:09:37.239] Test passed.
+[2026-10-05 22:09:37.239] Execution status: PASSED | Artifacts: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-220903-402-Default-Suite-testscenarios.FiveTimesIncorrectPasswordIOSTest.loginTest

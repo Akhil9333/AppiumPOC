@@ -1,0 +1,36 @@
+[2026-10-03 13:42:37.630] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-134237-623-Default_Suite-LoginAndLogoutFunctionality_Android.loginTest
+[2026-10-03 13:42:37.631] Starting test execution.
+[2026-10-03 13:42:37.631] Parameters: [Galaxy.*, 14, Android]
+[2026-10-03 13:42:37.642] Ignoring shared app id from LT_APP_ID/appID for Android run. Use LT_ANDROID_APP_ID for platform-specific app selection. Shared app id was: lt://APP10160202261790773364514615
+[2026-10-03 13:42:37.644] Saved text artifact: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-134237-623-Default_Suite-LoginAndLogoutFunctionality_Android.loginTest/20261003-134237-643-session-config.txt
+[2026-10-03 13:42:37.644] Using app capability: lt://APP1016040931790946196736259
+[2026-10-03 13:43:17.092] Attached Appium session: 02c81eb2-2ca7-443d-bfce-a52a1b7a6d9a
+[2026-10-03 13:43:17.093] Driver session created for platform=Android, device=Galaxy.*, version=14
+[2026-10-03 13:43:24.506] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-134237-623-Default_Suite-LoginAndLogoutFunctionality_Android.loginTest/20261003-134324-505-app-loaded.png
+[2026-10-03 13:43:24.507] Validating welcome message on landing screen.
+[2026-10-03 13:43:24.848] Navigated from welcome screen to healthy living screen.
+[2026-10-03 13:43:25.143] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-134237-623-Default_Suite-LoginAndLogoutFunctionality_Android.loginTest/20261003-134325-142-healthy-living-screen.png
+[2026-10-03 13:43:26.455] Opened login screen.
+[2026-10-03 13:43:26.879] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-134237-623-Default_Suite-LoginAndLogoutFunctionality_Android.loginTest/20261003-134326-874-login-screen.png
+[2026-10-03 13:43:27.738] Entering username.
+[2026-10-03 13:43:31.284] Entering password.
+[2026-10-03 13:43:34.392] Submitted login form.
+[2026-10-03 13:43:38.328] Dismissed notification popup.
+[2026-10-03 13:43:41.451] Accepted runtime permission dialog.
+[2026-10-03 13:43:46.062] Validated home screen greeting message.
+[2026-10-03 13:43:46.439] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-134237-623-Default_Suite-LoginAndLogoutFunctionality_Android.loginTest/20261003-134346-438-home-screen.png
+[2026-10-03 13:43:47.566] Opened profile tab.
+[2026-10-03 13:43:50.319] Opened settings screen.
+[2026-10-03 13:43:51.382] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-134237-623-Default_Suite-LoginAndLogoutFunctionality_Android.loginTest/20261003-134351-379-settings-screen.png
+[2026-10-03 13:43:53.633] Tapped logout button.
+[2026-10-03 13:43:54.642] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-134237-623-Default_Suite-LoginAndLogoutFunctionality_Android.loginTest/20261003-134354-641-logout-confirmation.png
+[2026-10-03 13:43:54.757] Confirmed logout action.
+[2026-10-03 13:43:55.127] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-134237-623-Default_Suite-LoginAndLogoutFunctionality_Android.loginTest/20261003-134355-126-logout-complete.png
+[2026-10-03 13:43:55.157] Unable to capture screenshot for 'test-passed': Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: io.appium.java_client.AppiumDriver
+Command: [null, screenshot {}]
+Capabilities {appium:adbExecTimeout: 120000, appium:appActivity: com.vitality.gutenberg.Main..., appium:appPackage: com.vitalityactive.assetadv..., appium:autoAcceptAlerts: true, appium:automationName: UiAutomator2, appium:chromeOptions: {args: []}, appium:chromedriverExecutableDir: /appium/assets/drivers/chro..., appium:chromedriverPorts: [[11001, 11049]], appium:databaseEnabled: false, appium:desired: {adbExecTimeout: 120000, appActivity: com.vitality.gutenberg.Main..., appPackage: com.vitalityactive.assetadv..., autoAcceptAlerts: true, automationName: UiAutomator2, chromeOptions: {args: []}, chromedriverExecutableDir: /appium/assets/drivers/chro..., chromedriverPorts: [[11001, 11049]], deviceName: Galaxy S23 Ultra, enableWebviewDetailsCollection: false, ensureWebviewsHavePages: false, headless: false, mode: cloud, nativeWebScreenshot: true, newCommandTimeout: 0, orientation: PORTRAIT, platformName: android, platformVersion: 14, skipLogcatCapture: true, systemPort: 12157, udid: R5CW31VFD1F, uiautomator2ServerLaunchTimeout: 60000, waitForQuiescence: false}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SCG20, appium:deviceName: R5CW31VFD1F, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2316, appium:deviceUDID: R5CW31VFD1F, appium:enableWebviewDetailsCollection: false, appium:ensureWebviewsHavePages: false, appium:headless: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:mode: cloud, appium:nativeWebScreenshot: true, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:orientation: PORTRAIT, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:skipLogcatCapture: true, appium:statBarHeight: 75, appium:systemPort: 12157, appium:takesScreenshot: true, appium:udid: R5CW31VFD1F, appium:uiautomator2ServerLaunchTimeout: 60000, appium:viewportRect: {height: 2031, left: 0, top: 75, width: 1080}, appium:waitForQuiescence: false, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+[2026-10-03 13:43:55.157] Test passed.
+[2026-10-03 13:43:55.157] Execution status: PASSED | Artifacts: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-134237-623-Default_Suite-LoginAndLogoutFunctionality_Android.loginTest

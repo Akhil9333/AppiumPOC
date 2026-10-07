@@ -1,0 +1,33 @@
+[2026-10-03 13:16:46.354] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-131646-345-Default_Suite-LoginAndLogoutFunctionality_iOS.loginTest
+[2026-10-03 13:16:46.355] Starting test execution.
+[2026-10-03 13:16:46.355] Parameters: [iPhone 12 .*, .*, iOS]
+[2026-10-03 13:16:46.368] Saved text artifact: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-131646-345-Default_Suite-LoginAndLogoutFunctionality_iOS.loginTest/20261003-131646-366-session-config.txt
+[2026-10-03 13:16:46.368] Using app capability: lt://APP10160202261790773364514615
+[2026-10-03 13:18:06.880] Attached Appium session: 3ce49dc5-19d3-40ea-bdcb-4f45b111f42c
+[2026-10-03 13:18:06.881] Driver session created for platform=iOS, device=iPhone 12 .*, version=.*
+[2026-10-03 13:18:11.303] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-131646-345-Default_Suite-LoginAndLogoutFunctionality_iOS.loginTest/20261003-131811-298-app-loaded.png
+[2026-10-03 13:18:11.303] Validating welcome message on landing screen.
+[2026-10-03 13:18:12.482] Navigated from welcome screen to healthy living screen.
+[2026-10-03 13:18:13.083] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-131646-345-Default_Suite-LoginAndLogoutFunctionality_iOS.loginTest/20261003-131813-079-healthy-living-screen.png
+[2026-10-03 13:18:14.305] Opened login screen.
+[2026-10-03 13:18:14.909] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-131646-345-Default_Suite-LoginAndLogoutFunctionality_iOS.loginTest/20261003-131814-906-login-screen.png
+[2026-10-03 13:18:22.688] Entered username.
+[2026-10-03 13:18:28.610] Entered password.
+[2026-10-03 13:18:31.758] Submitted login form.
+[2026-10-03 13:18:37.309] Validated home screen greeting message.
+[2026-10-03 13:18:37.786] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-131646-345-Default_Suite-LoginAndLogoutFunctionality_iOS.loginTest/20261003-131837-784-home-screen.png
+[2026-10-03 13:18:40.132] Opened profile tab.
+[2026-10-03 13:18:41.772] Opened settings screen.
+[2026-10-03 13:18:42.511] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-131646-345-Default_Suite-LoginAndLogoutFunctionality_iOS.loginTest/20261003-131842-510-settings-screen.png
+[2026-10-03 13:18:46.624] Tapped logout button.
+[2026-10-03 13:18:47.501] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-131646-345-Default_Suite-LoginAndLogoutFunctionality_iOS.loginTest/20261003-131847-499-logout-confirmation.png
+[2026-10-03 13:18:48.285] Confirmed logout action.
+[2026-10-03 13:18:48.726] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-131646-345-Default_Suite-LoginAndLogoutFunctionality_iOS.loginTest/20261003-131848-725-logout-complete.png
+[2026-10-03 13:18:48.755] Unable to capture screenshot for 'test-passed': Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: io.appium.java_client.AppiumDriver
+Command: [null, screenshot {}]
+Capabilities {appium:autoAcceptAlerts: true, appium:automationName: XCUITest, appium:bundleID: com.vitalityactive.va, appium:bundleId: com.vitalityactive.va, appium:databaseEnabled: false, appium:derivedDataPath: /Users/ltadmin/Documents/ap..., appium:deviceName: iPhone 12 Pro, appium:enableWebviewDetailsCollection: false, appium:ensureWebviewsHavePages: false, appium:headless: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:mode: cloud, appium:nativeWebScreenshot: true, appium:networkConnectionEnabled: false, appium:newCommandTimeout: 0, appium:noReset: false, appium:orientation: PORTRAIT, appium:platformVersion: 27.0, appium:realDevice: true, appium:takesScreenshot: true, appium:udid: 00008101-001315481E50001E, appium:uiautomator2ServerLaunchTimeout: 60000, appium:usePrebuiltWDA: true, appium:waitForQuiescence: false, appium:wdaLocalPort: 11083, appium:wdaRemotePort: 8100, appium:wdaStartupRetries: 3, appium:webStorageEnabled: false, appium:webkitResponseTimeout: 20000, platformName: IOS}
+[2026-10-03 13:18:48.755] Test passed.
+[2026-10-03 13:18:48.755] Execution status: PASSED | Artifacts: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261003-131646-345-Default_Suite-LoginAndLogoutFunctionality_iOS.loginTest

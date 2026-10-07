@@ -1,0 +1,36 @@
+[2026-10-05 15:01:23.976] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-150123-973-Default_Suite-fiveTimesIncorrectPasswordiOS.loginTest
+[2026-10-05 15:01:23.976] Starting test execution.
+[2026-10-05 15:01:23.976] Parameters: [iPhone 12 .*, .*, iOS]
+[2026-10-05 15:01:23.977] Running five incorrect password attempts scenario.
+[2026-10-05 15:01:24.337] Validated welcome message on landing screen.
+[2026-10-05 15:01:25.264] Navigated from welcome screen to healthy living screen.
+[2026-10-05 15:01:26.516] Opened login screen.
+[2026-10-05 15:01:32.149] Entered username.
+[2026-10-05 15:01:38.149] Entered password attempt 1.
+[2026-10-05 15:01:40.496] Submitted login form attempt 1.
+[2026-10-05 15:01:44.017] Validated incorrect password message for attempt 1.
+[2026-10-05 15:01:44.911] Dismissed incorrect password message for attempt 1.
+[2026-10-05 15:01:50.897] Entered password attempt 2.
+[2026-10-05 15:01:53.275] Submitted login form attempt 2.
+[2026-10-05 15:01:56.637] Validated incorrect password message for attempt 2.
+[2026-10-05 15:01:57.496] Dismissed incorrect password message for attempt 2.
+[2026-10-05 15:02:03.245] Entered password attempt 3.
+[2026-10-05 15:02:05.628] Submitted login form attempt 3.
+[2026-10-05 15:02:08.979] Validated incorrect password message for attempt 3.
+[2026-10-05 15:02:10.010] Dismissed incorrect password message for attempt 3.
+[2026-10-05 15:02:15.764] Entered password attempt 4.
+[2026-10-05 15:02:18.262] Submitted login form attempt 4.
+[2026-10-05 15:02:21.652] Validated incorrect password message for attempt 4.
+[2026-10-05 15:02:22.504] Dismissed incorrect password message for attempt 4.
+[2026-10-05 15:02:28.341] Entered password attempt 5.
+[2026-10-05 15:02:30.451] Submitted login form attempt 5.
+[2026-10-05 15:02:33.799] Validated incorrect password message for attempt 5.
+[2026-10-05 15:02:34.772] Dismissed incorrect password message for attempt 5.
+[2026-10-05 15:03:12.912] Validated account lockout message after five incorrect password attempts.
+[2026-10-05 15:03:13.775] Dismissed account lockout message.
+[2026-10-05 15:03:13.776] Screenshot skipped for 'five-times-incorrect-password' because AppiumDriver is not available.
+[2026-10-05 15:03:13.776] Completed five times incorrect password test.
+[2026-10-05 15:03:13.779] Attached Appium session: 5b5397ef-7363-414c-a13d-e1506f791919
+[2026-10-05 15:03:14.309] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-150123-973-Default_Suite-fiveTimesIncorrectPasswordiOS.loginTest/20261005-150314-270-test-passed.png
+[2026-10-05 15:03:14.309] Test passed.
+[2026-10-05 15:03:14.309] Execution status: PASSED | Artifacts: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-150123-973-Default_Suite-fiveTimesIncorrectPasswordiOS.loginTest

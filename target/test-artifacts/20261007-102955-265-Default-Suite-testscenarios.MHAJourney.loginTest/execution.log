@@ -1,0 +1,33 @@
+[2026-10-07 10:29:55.267] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261007-102955-265-Default-Suite-testscenarios.MHAJourney.loginTest
+[2026-10-07 10:29:55.267] Starting test execution.
+[2026-10-07 10:29:55.267] Parameters: [Galaxy S.*, .*, android]
+[2026-10-07 10:29:55.268] MHA Journey.
+[2026-10-07 10:29:56.079] Validated welcome message on landing screen.
+[2026-10-07 10:29:56.272] Navigated from welcome screen to healthy living screen.
+[2026-10-07 10:29:57.784] Opened login screen.
+[2026-10-07 10:30:02.385] Entered username.
+[2026-10-07 10:30:05.845] Entered password.
+[2026-10-07 10:30:07.364] Clicked submit button on login screen.
+[2026-10-07 10:30:10.461] Dismissed notification popup.
+[2026-10-07 10:30:13.640] Accepted runtime permission dialog.
+[2026-10-07 10:30:14.837] Validated home screen greeting message.
+[2026-10-07 10:30:14.838] Screenshot skipped for 'home-screen' because AppiumDriver is not available.
+[2026-10-07 10:30:15.054] Opened activity tab.
+[2026-10-07 10:30:15.690] Validated activity header.
+[2026-10-07 10:30:19.723] Scrolled and opened MHA feed card.
+[2026-10-07 10:30:21.834] Validated MHA screen header.
+[2026-10-07 10:30:21.952] Validated initial MHA points.
+[2026-10-07 10:30:22.062] Validated initial MHA time.
+[2026-10-07 10:30:23.382] Clicked MHA start button.
+[2026-10-07 10:30:24.024] Clicked 'I understand' on data privacy screen.
+[2026-10-07 10:30:26.315] Clicked start button on MHA questions screen.
+[2026-10-07 10:31:05.118] Validated and answered each MHA question, advancing through every section.
+[2026-10-07 10:31:06.152] Validated successful MHA assessment completion message.
+[2026-10-07 10:31:06.342] Validated View results button.
+[2026-10-07 10:31:08.086] Opened MHA assessment results.
+[2026-10-07 10:31:08.248] Validated low risk points updated.
+[2026-10-07 10:31:08.349] Validated completed date.
+[2026-10-07 10:31:08.352] Attached Appium session: f185b823-3620-4a26-afd4-e4e09a701904
+[2026-10-07 10:31:08.898] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261007-102955-265-Default-Suite-testscenarios.MHAJourney.loginTest/20261007-103108-897-test-passed.png
+[2026-10-07 10:31:08.898] Test passed.
+[2026-10-07 10:31:08.898] Execution status: PASSED | Artifacts: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261007-102955-265-Default-Suite-testscenarios.MHAJourney.loginTest

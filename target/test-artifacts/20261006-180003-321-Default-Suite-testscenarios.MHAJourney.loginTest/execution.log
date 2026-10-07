@@ -1,0 +1,98 @@
+[2026-10-06 18:00:03.329] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-180003-321-Default-Suite-testscenarios.MHAJourney.loginTest
+[2026-10-06 18:00:03.329] Starting test execution.
+[2026-10-06 18:00:03.329] Parameters: [Galaxy S.*, .*, android]
+[2026-10-06 18:00:03.330] Running five incorrect password attempts scenario.
+[2026-10-06 18:00:04.262] Validated welcome message on landing screen.
+[2026-10-06 18:00:04.468] Navigated from welcome screen to healthy living screen.
+[2026-10-06 18:00:06.090] Opened login screen.
+[2026-10-06 18:00:10.055] Entered username.
+[2026-10-06 18:00:13.658] Entered password.
+[2026-10-06 18:00:14.754] Clicked submit button on login screen.
+[2026-10-06 18:00:17.248] Dismissed notification popup.
+[2026-10-06 18:00:20.472] Accepted runtime permission dialog.
+[2026-10-06 18:00:21.727] Validated home screen greeting message.
+[2026-10-06 18:00:21.727] Screenshot skipped for 'home-screen' because AppiumDriver is not available.
+[2026-10-06 18:00:21.936] Opened activity tab.
+[2026-10-06 18:00:23.130] Validated activity header.
+[2026-10-06 18:00:25.579] Scrolled and opened MHA feed card.
+[2026-10-06 18:00:28.536] Validated MHA screen header.
+[2026-10-06 18:00:28.684] Validated initial MHA points.
+[2026-10-06 18:00:28.833] Validated initial MHA time.
+[2026-10-06 18:01:53.082] Attached Appium session: 83500821-dfdf-46da-a16c-b5170831370c
+[2026-10-06 18:01:53.111] Unable to capture screenshot for 'listener-failure': Unable to find the session info for particular sessionId 83500821-dfdf-46da-a16c-b5170831370c, maybe session has quit already or timed out.
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: io.appium.java_client.AppiumDriver
+Command: [83500821-dfdf-46da-a16c-b5170831370c, screenshot {}]
+Capabilities {appium:adbExecTimeout: 120000, appium:appActivity: com.vitality.gutenberg.Main..., appium:appPackage: com.vitalityactive.assetadv..., appium:autoAcceptAlerts: true, appium:automationName: uiautomator2, appium:chromeOptions: {args: []}, appium:chromedriverExecutableDir: /appium/assets/drivers/chro..., appium:chromedriverPorts: [[11001, 11049]], appium:databaseEnabled: false, appium:desired: {adbExecTimeout: 120000, appActivity: com.vitality.gutenberg.Main..., appPackage: com.vitalityactive.assetadv..., autoAcceptAlerts: true, automationName: uiautomator2, chromeOptions: {args: []}, chromedriverExecutableDir: /appium/assets/drivers/chro..., chromedriverPorts: [[11001, 11049]], deviceName: Galaxy S24 Ultra, enableWebviewDetailsCollection: false, ensureWebviewsHavePages: false, headless: false, mode: cloud, nativeWebScreenshot: true, newCommandTimeout: 0, noReset: false, orientation: PORTRAIT, platformName: android, platformVersion: 14, skipLogcatCapture: true, systemPort: 12040, udid: R3CX804KAXH, uiautomator2ServerLaunchTimeout: 60000, waitForQuiescence: false}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S928N, appium:deviceName: R3CX804KAXH, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2316, appium:deviceUDID: R3CX804KAXH, appium:enableWebviewDetailsCollection: false, appium:ensureWebviewsHavePages: false, appium:headless: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:mode: cloud, appium:nativeWebScreenshot: true, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: false, appium:orientation: PORTRAIT, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:skipLogcatCapture: true, appium:statBarHeight: 77, appium:systemPort: 12040, appium:takesScreenshot: true, appium:udid: R3CX804KAXH, appium:uiautomator2ServerLaunchTimeout: 60000, appium:viewportRect: {height: 2028, left: 0, top: 77, width: 1080}, appium:waitForQuiescence: false, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 83500821-dfdf-46da-a16c-b5170831370c
+[2026-10-06 18:01:53.136] Unable to capture page source for 'listener-failure': Unable to find the session info for particular sessionId 83500821-dfdf-46da-a16c-b5170831370c, maybe session has quit already or timed out.
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: io.appium.java_client.AppiumDriver
+Command: [83500821-dfdf-46da-a16c-b5170831370c, getPageSource {}]
+Capabilities {appium:adbExecTimeout: 120000, appium:appActivity: com.vitality.gutenberg.Main..., appium:appPackage: com.vitalityactive.assetadv..., appium:autoAcceptAlerts: true, appium:automationName: uiautomator2, appium:chromeOptions: {args: []}, appium:chromedriverExecutableDir: /appium/assets/drivers/chro..., appium:chromedriverPorts: [[11001, 11049]], appium:databaseEnabled: false, appium:desired: {adbExecTimeout: 120000, appActivity: com.vitality.gutenberg.Main..., appPackage: com.vitalityactive.assetadv..., autoAcceptAlerts: true, automationName: uiautomator2, chromeOptions: {args: []}, chromedriverExecutableDir: /appium/assets/drivers/chro..., chromedriverPorts: [[11001, 11049]], deviceName: Galaxy S24 Ultra, enableWebviewDetailsCollection: false, ensureWebviewsHavePages: false, headless: false, mode: cloud, nativeWebScreenshot: true, newCommandTimeout: 0, noReset: false, orientation: PORTRAIT, platformName: android, platformVersion: 14, skipLogcatCapture: true, systemPort: 12040, udid: R3CX804KAXH, uiautomator2ServerLaunchTimeout: 60000, waitForQuiescence: false}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S928N, appium:deviceName: R3CX804KAXH, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2316, appium:deviceUDID: R3CX804KAXH, appium:enableWebviewDetailsCollection: false, appium:ensureWebviewsHavePages: false, appium:headless: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:mode: cloud, appium:nativeWebScreenshot: true, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: false, appium:orientation: PORTRAIT, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:skipLogcatCapture: true, appium:statBarHeight: 77, appium:systemPort: 12040, appium:takesScreenshot: true, appium:udid: R3CX804KAXH, appium:uiautomator2ServerLaunchTimeout: 60000, appium:viewportRect: {height: 2028, left: 0, top: 77, width: 1080}, appium:waitForQuiescence: false, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 83500821-dfdf-46da-a16c-b5170831370c
+[2026-10-06 18:01:53.137] Test failed: WebDriverException - Unable to find the session info for particular sessionId 83500821-dfdf-46da-a16c-b5170831370c, maybe session has quit already or timed out.
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: io.appium.java_client.AppiumDriver
+Command: [83500821-dfdf-46da-a16c-b5170831370c, findElement {value=//*[@resource-id='btnstartassessment_001'], using=xpath}]
+Capabilities {appium:adbExecTimeout: 120000, appium:appActivity: com.vitality.gutenberg.Main..., appium:appPackage: com.vitalityactive.assetadv..., appium:autoAcceptAlerts: true, appium:automationName: uiautomator2, appium:chromeOptions: {args: []}, appium:chromedriverExecutableDir: /appium/assets/drivers/chro..., appium:chromedriverPorts: [[11001, 11049]], appium:databaseEnabled: false, appium:desired: {adbExecTimeout: 120000, appActivity: com.vitality.gutenberg.Main..., appPackage: com.vitalityactive.assetadv..., autoAcceptAlerts: true, automationName: uiautomator2, chromeOptions: {args: []}, chromedriverExecutableDir: /appium/assets/drivers/chro..., chromedriverPorts: [[11001, 11049]], deviceName: Galaxy S24 Ultra, enableWebviewDetailsCollection: false, ensureWebviewsHavePages: false, headless: false, mode: cloud, nativeWebScreenshot: true, newCommandTimeout: 0, noReset: false, orientation: PORTRAIT, platformName: android, platformVersion: 14, skipLogcatCapture: true, systemPort: 12040, udid: R3CX804KAXH, uiautomator2ServerLaunchTimeout: 60000, waitForQuiescence: false}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S928N, appium:deviceName: R3CX804KAXH, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2316, appium:deviceUDID: R3CX804KAXH, appium:enableWebviewDetailsCollection: false, appium:ensureWebviewsHavePages: false, appium:headless: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:mode: cloud, appium:nativeWebScreenshot: true, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: false, appium:orientation: PORTRAIT, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:skipLogcatCapture: true, appium:statBarHeight: 77, appium:systemPort: 12040, appium:takesScreenshot: true, appium:udid: R3CX804KAXH, appium:uiautomator2ServerLaunchTimeout: 60000, appium:viewportRect: {height: 2028, left: 0, top: 77, width: 1080}, appium:waitForQuiescence: false, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 83500821-dfdf-46da-a16c-b5170831370c
+org.openqa.selenium.WebDriverException: Unable to find the session info for particular sessionId 83500821-dfdf-46da-a16c-b5170831370c, maybe session has quit already or timed out.
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: io.appium.java_client.AppiumDriver
+Command: [83500821-dfdf-46da-a16c-b5170831370c, findElement {value=//*[@resource-id='btnstartassessment_001'], using=xpath}]
+Capabilities {appium:adbExecTimeout: 120000, appium:appActivity: com.vitality.gutenberg.Main..., appium:appPackage: com.vitalityactive.assetadv..., appium:autoAcceptAlerts: true, appium:automationName: uiautomator2, appium:chromeOptions: {args: []}, appium:chromedriverExecutableDir: /appium/assets/drivers/chro..., appium:chromedriverPorts: [[11001, 11049]], appium:databaseEnabled: false, appium:desired: {adbExecTimeout: 120000, appActivity: com.vitality.gutenberg.Main..., appPackage: com.vitalityactive.assetadv..., autoAcceptAlerts: true, automationName: uiautomator2, chromeOptions: {args: []}, chromedriverExecutableDir: /appium/assets/drivers/chro..., chromedriverPorts: [[11001, 11049]], deviceName: Galaxy S24 Ultra, enableWebviewDetailsCollection: false, ensureWebviewsHavePages: false, headless: false, mode: cloud, nativeWebScreenshot: true, newCommandTimeout: 0, noReset: false, orientation: PORTRAIT, platformName: android, platformVersion: 14, skipLogcatCapture: true, systemPort: 12040, udid: R3CX804KAXH, uiautomator2ServerLaunchTimeout: 60000, waitForQuiescence: false}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S928N, appium:deviceName: R3CX804KAXH, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2316, appium:deviceUDID: R3CX804KAXH, appium:enableWebviewDetailsCollection: false, appium:ensureWebviewsHavePages: false, appium:headless: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:mode: cloud, appium:nativeWebScreenshot: true, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: false, appium:orientation: PORTRAIT, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:skipLogcatCapture: true, appium:statBarHeight: 77, appium:systemPort: 12040, appium:takesScreenshot: true, appium:udid: R3CX804KAXH, appium:uiautomator2ServerLaunchTimeout: 60000, appium:viewportRect: {height: 2028, left: 0, top: 77, width: 1080}, appium:waitForQuiescence: false, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 83500821-dfdf-46da-a16c-b5170831370c
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:190)
+	at org.openqa.selenium.support.ui.ExpectedConditions$25.apply(ExpectedConditions.java:717)
+	at org.openqa.selenium.support.ui.ExpectedConditions$25.apply(ExpectedConditions.java:713)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	at genericUtils.MobileSessionInit.waitForVisibleElement(MobileSessionInit.java:71)
+	at genericUtils.MobileSessionInit.clickElement(MobileSessionInit.java:89)
+	at screens.BaseScreen.click(BaseScreen.java:32)
+	at screens.MHALandingScreen.clickMHAStartButton(MHALandingScreen.java:39)
+	at testscenarios.MHAJourney.loginTest(MHAJourney.java:98)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:67)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+[2026-10-06 18:01:53.137] Execution status: FAILED | Artifacts: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-180003-321-Default-Suite-testscenarios.MHAJourney.loginTest

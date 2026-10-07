@@ -1,0 +1,7 @@
+[2026-10-05 17:25:22.701] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-172522-694-fiveTimesIncorrectPasswordiOS-5_Times_Incorrect_Password_Test
+[2026-10-05 17:25:22.711] Ignoring shared app id from LT_APP_ID/appID for iOS run. Use LT_IOS_APP_ID for platform-specific app selection. Shared app id was: lt://APP10160202261790773364514615
+[2026-10-05 17:25:22.713] Saved text artifact: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-172522-694-fiveTimesIncorrectPasswordiOS-5_Times_Incorrect_Password_Test/20261005-172522-712-session-config.txt
+[2026-10-05 17:25:22.713] Using app capability: lt://APP1016040931790946175785731
+[2026-10-05 17:26:36.689] Attached Appium session: 964b25ef-b1f0-462b-8faa-6d3b36e98e25
+[2026-10-05 17:26:36.691] Driver session created for platform=iOS, device=iPhone 12 .*, version=.*
+[2026-10-05 17:26:41.366] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-172522-694-fiveTimesIncorrectPasswordiOS-5_Times_Incorrect_Password_Test/20261005-172641-364-app-loaded.png

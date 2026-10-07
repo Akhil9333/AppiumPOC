@@ -1,0 +1,4 @@
+platform=Android
+device=Galaxy.*
+version=14
+appId=lt://APP1016040931790946196736259

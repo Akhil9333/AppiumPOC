@@ -1,0 +1,24 @@
+[2026-10-05 18:06:42.629] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-180642-628-Default_Suite-fiveTimesIncorrectPasswordiOS.loginTest
+[2026-10-05 18:06:42.629] Starting test execution.
+[2026-10-05 18:06:42.629] Parameters: [iPhone 12 .*, .*, iOS]
+[2026-10-05 18:06:42.630] Running five incorrect password attempts scenario.
+[2026-10-05 18:06:43.015] Validated welcome message on landing screen.
+[2026-10-05 18:06:43.915] Navigated from welcome screen to healthy living screen.
+[2026-10-05 18:06:45.360] Opened login screen.
+[2026-10-05 18:06:50.567] Entered username.
+[2026-10-05 18:06:58.930] Submitted login form attempt 1.
+[2026-10-05 18:07:02.347] Validated incorrect password message for attempt 1.
+[2026-10-05 18:07:03.274] Dismissed incorrect password message for attempt 1.
+[2026-10-05 18:07:04.334] Submitted login form attempt 2.
+[2026-10-05 18:07:07.840] Validated incorrect password message for attempt 2.
+[2026-10-05 18:07:08.818] Dismissed incorrect password message for attempt 2.
+[2026-10-05 18:07:09.766] Submitted login form attempt 3.
+[2026-10-05 18:07:13.232] Validated incorrect password message for attempt 3.
+[2026-10-05 18:07:14.077] Dismissed incorrect password message for attempt 3.
+[2026-10-05 18:07:15.118] Submitted login form attempt 4.
+[2026-10-05 18:07:18.493] Validated incorrect password message for attempt 4.
+[2026-10-05 18:07:19.459] Dismissed incorrect password message for attempt 4.
+[2026-10-05 18:07:20.392] Submitted login form attempt 5.
+[2026-10-05 18:07:23.792] Validated incorrect password message for attempt 5.
+[2026-10-05 18:07:24.673] Dismissed incorrect password message for attempt 5.
+[2026-10-05 18:07:25.745] Submitted login form attempt 6.

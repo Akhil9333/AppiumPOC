@@ -1,0 +1,67 @@
+[2026-10-06 20:49:03.345] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-204903-343-Default-Suite-testscenarios.MHAJourney.loginTest
+[2026-10-06 20:49:03.345] Starting test execution.
+[2026-10-06 20:49:03.346] Parameters: [Galaxy S.*, .*, android]
+[2026-10-06 20:49:03.347] MHA Journey.
+[2026-10-06 20:49:04.187] Validated welcome message on landing screen.
+[2026-10-06 20:49:04.386] Navigated from welcome screen to healthy living screen.
+[2026-10-06 20:49:06.003] Opened login screen.
+[2026-10-06 20:49:09.762] Entered username.
+[2026-10-06 20:49:13.203] Entered password.
+[2026-10-06 20:49:14.244] Clicked submit button on login screen.
+[2026-10-06 20:49:16.517] Dismissed notification popup.
+[2026-10-06 20:49:19.707] Accepted runtime permission dialog.
+[2026-10-06 20:49:20.935] Validated home screen greeting message.
+[2026-10-06 20:49:20.936] Screenshot skipped for 'home-screen' because AppiumDriver is not available.
+[2026-10-06 20:49:21.287] Opened activity tab.
+[2026-10-06 20:49:22.504] Validated activity header.
+[2026-10-06 20:49:24.941] Scrolled and opened MHA feed card.
+[2026-10-06 20:49:27.417] Validated MHA screen header.
+[2026-10-06 20:49:27.589] Validated initial MHA points.
+[2026-10-06 20:49:27.777] Validated initial MHA time.
+[2026-10-06 20:49:27.972] Clicked MHA start button.
+[2026-10-06 20:49:30.579] Clicked 'I understand' on data privacy screen.
+[2026-10-06 20:49:31.365] Clicked start button on MHA questions screen.
+[2026-10-06 20:50:08.729] Validated and answered each MHA question, advancing through every section.
+[2026-10-06 20:50:09.758] Validated successful MHA assessment completion message.
+[2026-10-06 20:50:09.920] Validated View results button.
+[2026-10-06 20:50:10.681] Opened MHA assessment results.
+[2026-10-06 20:50:12.562] Validated low risk points updated.
+[2026-10-06 20:50:12.719] Attached Appium session: 0b88b41f-1697-48f9-8d16-69e96c8aa345
+[2026-10-06 20:50:13.359] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-204903-343-Default-Suite-testscenarios.MHAJourney.loginTest/20261006-205013-353-listener-failure.png
+[2026-10-06 20:50:13.448] Saved page source: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-204903-343-Default-Suite-testscenarios.MHAJourney.loginTest/20261006-205013-446-listener-failure.xml
+[2026-10-06 20:50:13.449] Test failed: AssertionError - Mobile element text did not match expected [Completed: 05 Jul 2026] but found [Completed: 27 Mar 2026]
+java.lang.AssertionError: Mobile element text did not match expected [Completed: 05 Jul 2026] but found [Completed: 27 Mar 2026]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at screens.BaseScreen.assertTextEquals(BaseScreen.java:87)
+	at screens.MHALandingScreen.assertCompltedDate(MHALandingScreen.java:55)
+	at testscenarios.MHAJourney.loginTest(MHAJourney.java:125)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:67)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+[2026-10-06 20:50:13.450] Execution status: FAILED | Artifacts: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-204903-343-Default-Suite-testscenarios.MHAJourney.loginTest

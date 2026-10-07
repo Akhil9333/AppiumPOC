@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="100" name="Mobile" parallel="tests">
+
+    <listeners>
+        <listener class-name="genericUtils.TestExecutionListener"/>
+    </listeners>
+
+    <test name="LoginAndLogoutFunctionality_iOS 1">
+        <parameter name="version" value="17.*"/>
+        <parameter name="platform" value="iOS"/>
+        <parameter name="device" value="iPhone.*"/>
+        <classes>
+            <class name="testscenarios.LoginAndLogoutFunctionality_iOS"/>
+        </classes>
+    </test>
+
+    <test name="LoginAndLogoutFunctionality_iOS 2">
+        <parameter name="version" value=".*"/>
+        <parameter name="platform" value="iOS"/>
+        <parameter name="device" value="iPhone.*"/>
+        <classes>
+            <class name="testscenarios.LoginAndLogoutFunctionality_iOS"/>
+        </classes>
+    </test>
+
+    <test name="iOS 5 Times Incorrect Password Test">
+        <parameter name="version" value=".*"/>
+        <parameter name="platform" value="iOS"/>
+        <parameter name="device" value="iPhone.*"/>
+        <classes>
+            <class name="testscenarios.FiveTimesIncorrectPasswordIOSTest"/>
+        </classes>
+    </test>
+
+    <test name="iOS 5 Times Incorrect Password Test">
+        <parameter name="version" value=".*"/>
+        <parameter name="platform" value="iOS"/>
+        <parameter name="device" value="iPhone.*"/>
+        <classes>
+            <class name="testscenarios.MHAJourney"/>
+        </classes>
+    </test>
+
+    <test name="Screening Vaccination Form iOS 1">
+        <parameter name="version" value="17.*"/>
+        <parameter name="platform" value="iOS"/>
+        <parameter name="device" value="iPhone.*"/>
+        <classes>
+            <class name="testscenarios.ScreeningVaccinationFormTest"/>
+        </classes>
+    </test>
+
+    <test name="Screening Vaccination Form iOS 2">
+        <parameter name="version" value=".*"/>
+        <parameter name="platform" value="iOS"/>
+        <parameter name="device" value="iPhone.*"/>
+        <classes>
+            <class name="testscenarios.ScreeningVaccinationFormTest"/>
+        </classes>
+    </test>
+</suite>

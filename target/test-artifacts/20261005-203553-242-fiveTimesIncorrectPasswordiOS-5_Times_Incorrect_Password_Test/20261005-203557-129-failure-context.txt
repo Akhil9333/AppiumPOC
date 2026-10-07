@@ -1,0 +1,11 @@
+platform=iOS
+device=iPhone 14  .*
+version=.*
+appId=lt://APP10160202261790773364514615
+error=Could not start a new session. Response code 400. Message: 6d4cd62d45be7d69d364ad9ca54a8488: Oops, No device can be found with the input capabilities. Please check capabilities once like DeviceName, PlatformVersion, Os, Privatecloud, Byod, MinorOsVersionEnabled, SimOptions etc. 
+Host info: host: 'YGYF77XPV9', ip: '2406:b400:f14:7ab5:29f5:308a:26eb:8037%en0'
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: io.appium.java_client.AppiumDriver
+Command: [null, newSession {capabilities=[{appium:name=5 Times Incorrect Password Test, appium:automationName=XCUITest, appium:iosLiveInteraction=true, appium:app=lt://APP10160202261790773364514615, appium:resignApp=true, appium:platformVersion=.*, appium:isRealMobile=true, appium:privateCloud=true, appium:deviceName=iPhone 14  .*, appium:autoAcceptAlerts=true, platformName=IOS, appium:build=5 Times Incorrect Password Test}], desiredCapabilities=Capabilities {appium:app: lt://APP1016020226179077336..., appium:autoAcceptAlerts: true, appium:automationName: XCUITest, appium:build: 5 Times Incorrect Password ..., appium:deviceName: iPhone 14  .*, appium:iosLiveInteraction: true, appium:isRealMobile: true, appium:name: 5 Times Incorrect Password ..., appium:platformVersion: .*, appium:privateCloud: true, appium:resignApp: true, platformName: IOS}}]
+Capabilities {appium:app: lt://APP1016020226179077336..., appium:autoAcceptAlerts: true, appium:automationName: XCUITest, appium:build: 5 Times Incorrect Password ..., appium:deviceName: iPhone 14  .*, appium:iosLiveInteraction: true, appium:isRealMobile: true, appium:name: 5 Times Incorrect Password ..., appium:platformVersion: .*, appium:privateCloud: true, appium:resignApp: true, platformName: IOS}

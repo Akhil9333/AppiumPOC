@@ -1,0 +1,63 @@
+[2026-10-05 20:35:53.368] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-203553-242-fiveTimesIncorrectPasswordiOS-5_Times_Incorrect_Password_Test
+[2026-10-05 20:35:53.383] Ignoring shared app id from LT_APP_ID/appID for iOS run. Use LT_IOS_APP_ID for platform-specific app selection. Shared app id was: lt://APP10160202261790773364514615
+[2026-10-05 20:35:53.418] Saved text artifact: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-203553-242-fiveTimesIncorrectPasswordiOS-5_Times_Incorrect_Password_Test/20261005-203553-384-session-config.txt
+[2026-10-05 20:35:53.419] Using app capability: lt://APP10160202261790773364514615
+[2026-10-05 20:35:57.122] Mobile session initialization failed: SessionNotCreatedException - Could not start a new session. Response code 400. Message: 6d4cd62d45be7d69d364ad9ca54a8488: Oops, No device can be found with the input capabilities. Please check capabilities once like DeviceName, PlatformVersion, Os, Privatecloud, Byod, MinorOsVersionEnabled, SimOptions etc. 
+Host info: host: 'YGYF77XPV9', ip: '2406:b400:f14:7ab5:29f5:308a:26eb:8037%en0'
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: io.appium.java_client.AppiumDriver
+Command: [null, newSession {capabilities=[{appium:name=5 Times Incorrect Password Test, appium:automationName=XCUITest, appium:iosLiveInteraction=true, appium:app=lt://APP10160202261790773364514615, appium:resignApp=true, appium:platformVersion=.*, appium:isRealMobile=true, appium:privateCloud=true, appium:deviceName=iPhone 14  .*, appium:autoAcceptAlerts=true, platformName=IOS, appium:build=5 Times Incorrect Password Test}], desiredCapabilities=Capabilities {appium:app: lt://APP1016020226179077336..., appium:autoAcceptAlerts: true, appium:automationName: XCUITest, appium:build: 5 Times Incorrect Password ..., appium:deviceName: iPhone 14  .*, appium:iosLiveInteraction: true, appium:isRealMobile: true, appium:name: 5 Times Incorrect Password ..., appium:platformVersion: .*, appium:privateCloud: true, appium:resignApp: true, platformName: IOS}}]
+Capabilities {appium:app: lt://APP1016020226179077336..., appium:autoAcceptAlerts: true, appium:automationName: XCUITest, appium:build: 5 Times Incorrect Password ..., appium:deviceName: iPhone 14  .*, appium:iosLiveInteraction: true, appium:isRealMobile: true, appium:name: 5 Times Incorrect Password ..., appium:platformVersion: .*, appium:privateCloud: true, appium:resignApp: true, platformName: IOS}
+org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 400. Message: 6d4cd62d45be7d69d364ad9ca54a8488: Oops, No device can be found with the input capabilities. Please check capabilities once like DeviceName, PlatformVersion, Os, Privatecloud, Byod, MinorOsVersionEnabled, SimOptions etc. 
+Host info: host: 'YGYF77XPV9', ip: '2406:b400:f14:7ab5:29f5:308a:26eb:8037%en0'
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: io.appium.java_client.AppiumDriver
+Command: [null, newSession {capabilities=[{appium:name=5 Times Incorrect Password Test, appium:automationName=XCUITest, appium:iosLiveInteraction=true, appium:app=lt://APP10160202261790773364514615, appium:resignApp=true, appium:platformVersion=.*, appium:isRealMobile=true, appium:privateCloud=true, appium:deviceName=iPhone 14  .*, appium:autoAcceptAlerts=true, platformName=IOS, appium:build=5 Times Incorrect Password Test}], desiredCapabilities=Capabilities {appium:app: lt://APP1016020226179077336..., appium:autoAcceptAlerts: true, appium:automationName: XCUITest, appium:build: 5 Times Incorrect Password ..., appium:deviceName: iPhone 14  .*, appium:iosLiveInteraction: true, appium:isRealMobile: true, appium:name: 5 Times Incorrect Password ..., appium:platformVersion: .*, appium:privateCloud: true, appium:resignApp: true, platformName: IOS}}]
+Capabilities {appium:app: lt://APP1016020226179077336..., appium:autoAcceptAlerts: true, appium:automationName: XCUITest, appium:build: 5 Times Incorrect Password ..., appium:deviceName: iPhone 14  .*, appium:iosLiveInteraction: true, appium:isRealMobile: true, appium:name: 5 Times Incorrect Password ..., appium:platformVersion: .*, appium:privateCloud: true, appium:resignApp: true, platformName: IOS}
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:114)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:116)
+	at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:96)
+	at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:176)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at io.appium.java_client.AppiumDriver.startSession(AppiumDriver.java:268)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:174)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:90)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:102)
+	at genericUtils.MobileSessionInit.startSession(MobileSessionInit.java:177)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
+	at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:67)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+[2026-10-05 20:35:57.136] Saved text artifact: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-203553-242-fiveTimesIncorrectPasswordiOS-5_Times_Incorrect_Password_Test/20261005-203557-129-failure-context.txt
+[2026-10-05 20:35:57.137] Screenshot skipped for 'failure' because AppiumDriver is not available.
+[2026-10-05 20:35:57.138] Page source capture skipped for 'failure' because AppiumDriver is not available.

@@ -1,0 +1,58 @@
+[2026-10-06 22:10:55.547] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-221055-542-Default-Suite-testscenarios.MHAJourney.loginTest
+[2026-10-06 22:10:55.547] Starting test execution.
+[2026-10-06 22:10:55.547] Parameters: [iPhone 14.*, .*, iOS]
+[2026-10-06 22:10:55.548] MHA Low Rish user.
+[2026-10-06 22:10:55.907] Validated welcome message on landing screen.
+[2026-10-06 22:10:56.753] Navigated from welcome screen to healthy living screen.
+[2026-10-06 22:10:58.188] Opened login screen.
+[2026-10-06 22:11:04.345] Entered username.
+[2026-10-06 22:11:10.004] Entered password.
+[2026-10-06 22:11:11.479] Clicked submit button on login screen.
+[2026-10-06 22:11:17.872] Validated home screen greeting message.
+[2026-10-06 22:11:17.872] Screenshot skipped for 'home-screen' because AppiumDriver is not available.
+[2026-10-06 22:11:19.032] Opened activity tab.
+[2026-10-06 22:11:19.491] Validated activity header.
+[2026-10-06 22:11:54.122] Attached Appium session: d88551cc-16c9-4a90-b14d-5b2511e55d1a
+[2026-10-06 22:11:55.171] Saved screenshot: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-221055-542-Default-Suite-testscenarios.MHAJourney.loginTest/20261006-221155-168-listener-failure.png
+[2026-10-06 22:11:56.105] Saved page source: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-221055-542-Default-Suite-testscenarios.MHAJourney.loginTest/20261006-221156-102-listener-failure.xml
+[2026-10-06 22:11:56.107] Test failed: NoSuchElementException - Element not found after 5 upward scrolls: By.xpath: //*[@name='Mental Health Assessment Tracking Card_2']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: driver.version: unknown
+org.openqa.selenium.NoSuchElementException: Element not found after 5 upward scrolls: By.xpath: //*[@name='Mental Health Assessment Tracking Card_2']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.7', java.version: '27'
+Driver info: driver.version: unknown
+	at genericUtils.ScrollActions.scrollUpUntilElementFound(ScrollActions.java:67)
+	at genericUtils.MobileSessionInit.scrollUpUntilElementFound(MobileSessionInit.java:150)
+	at screens.BaseScreen.scrollAndClick(BaseScreen.java:36)
+	at screens.ActivityScreen.openMHAFeedcard(ActivityScreen.java:19)
+	at testscenarios.MHAJourney.loginTest(MHAJourney.java:88)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:67)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+[2026-10-06 22:11:56.107] Execution status: FAILED | Artifacts: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261006-221055-542-Default-Suite-testscenarios.MHAJourney.loginTest

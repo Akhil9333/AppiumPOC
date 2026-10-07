@@ -1,0 +1,4 @@
+platform=iOS
+device=iPhone 14  .*
+version=.*
+appId=lt://APP1016040931790946175785731
