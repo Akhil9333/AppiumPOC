@@ -7,6 +7,7 @@ import {
   logSharedAppIdWarning,
   selectedPlatform,
   sessionDashboardUrl,
+  setSessionNameFromSpecs,
   settingOr,
   shouldOpenLiveSession
 } from './src/config/mobileSessionInit.js';
@@ -27,7 +28,7 @@ let liveSessionUrl: string | undefined;
 
 export const config: WebdriverIO.Config = {
   runner: 'local',
-  specs: [`./tests/testScenarios/${testScenario.file}`],
+  specs: [`./tests/${testScenario.file}`],
   suites,
   maxInstances: 1,
   capabilities: [buildCapabilities(platform, scenario, testScenario.name)],
@@ -52,6 +53,9 @@ export const config: WebdriverIO.Config = {
     ui: 'bdd',
     timeout: timeouts.test,
     retries: 0
+  },
+  beforeSession(_config, capabilities, specs) {
+    setSessionNameFromSpecs(capabilities, specs);
   },
   async beforeTest(test) {
     executionReporter.startTest(test.parent, test.title, { addAttachment, addStep });

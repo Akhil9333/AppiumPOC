@@ -109,7 +109,8 @@ for (const file of ['login-logout', 'mha-low-risk', 'mha-high-risk', 'incorrect-
         }
         mocha.dispose();
       });
-      const specUrl = new URL(`../testScenarios/${file}.spec.ts`, import.meta.url);
+      const pack = ['login-logout', 'mha-high-risk'].includes(file) ? 'smoke' : 'regression';
+      const specUrl = new URL(`../${pack}/${file}.spec.ts`, import.meta.url);
       await import(`${specUrl.href}?provisioning=${outcome}`);
       let bodiesRun = 0;
       let registeredTests = 0;

@@ -3,6 +3,53 @@
 This project runs Android and iOS mobile UI tests with TypeScript, WebdriverIO,
 Mocha, and the TestMu AI (formerly LambdaTest) real-device cloud.
 
+## LambdaTest script generator agent
+
+The workspace custom agent is defined in
+[`lambdatest-script-generator.agent.md`](./.github/agents/lambdatest-script-generator.agent.md).
+In VS Code Copilot Chat, select **LambdaTest Script Generator** from the agent
+dropdown. If it is not listed, open **Chat: Configure Custom Agents** from the
+Command Palette and check that workspace agents are enabled for your harness.
+You need a VS Code/Copilot setup that supports custom agents.
+
+Example prompt:
+
+```text
+Create a regression test for logging out and logging back in on Android and iOS.
+Provision a fresh member using the existing helper, reuse the page objects,
+assert the home greeting after the second login, and register the test in the
+regression pack. Run local validation only; do not start a LambdaTest session.
+```
+
+Provide the journey, expected results, target platform, and pack. For new screens,
+provide confirmed selectors or sanitized Appium page source. The agent reuses
+existing helpers, adds spec/runner wiring and documentation, and reports local
+validation separately from live execution. It requires approval before cloud
+sessions or backend provisioning. No API key or extra dependency is needed to
+add the agent; generated live tests still need the credentials described below.
+This is a Copilot custom agent, not a standalone generator CLI or LambdaTest MCP
+server.
+
+### Official LambdaTest Appium skill
+
+The generator also uses the official
+[`appium-skill`](./.github/skills/appium-skill/SKILL.md) from
+[LambdaTest/agent-skills](https://github.com/LambdaTest/agent-skills).
+Its JavaScript/WebdriverIO, cloud, iOS, and hybrid-app references are included.
+The [upstream revision](./.github/skills/appium-skill/UPSTREAM.md) and
+[MIT license](./.github/skills/appium-skill/LICENSE) are retained.
+
+For VS Code Copilot, the skill is installed under `.github/skills/`, not
+`.cursor/skills/` (the Cursor-specific location). No duplicate installation is
+needed. Open **Chat: Open Customizations** or the skills menu to confirm it is
+discovered; discovery depends on the selected harness and VS Code version.
+The generator agent explicitly references it while preserving this project's
+TypeScript/Mocha conventions and cloud-execution approval requirements.
+
+This installs reusable AI instructions, not a LambdaTest API/MCP connection
+or a Copilot SDK generator service. It does not upload apps, provision members,
+or launch paid device sessions.
+
 ## Prerequisites
 
 - Node.js 20 or later and npm
@@ -52,6 +99,17 @@ Configure the profile's `API_BEARER_TOKEN`, `API_BASIC_AUTH`, `LOGIN_PREFIX`,
 `ZUUL_URL`, `TENANT_NUMBER`, `INTEGRATION_PLATFORM_BASE_URL`, `EMAIL_DOMAIN`
 and shared `configUserAgent` in user-creation settings before these runs.
 
+The read-only `getUserInstruction` lookup (sent as a POST by the backend API)
+has a 30-second timeout per attempt and up to three attempts, with 500 ms and
+1,000 ms backoff. Only transient network errors, timeouts and HTTP 502/503/504
+are retried; authentication, TLS and invalid-response errors fail immediately.
+Retry warnings and final errors identify the endpoint and network error code
+without logging credentials or the request body, and retain the original cause.
+For persistent failures, check backend availability and the runner's VPN, DNS,
+proxy and TLS configuration. The lookup runs from the Node.js worker, not from
+the cloud device. Account creation and other provisioning writes are not retried
+automatically, to avoid duplicate side effects.
+
 Environment variables take precedence over `lambdatest.properties` in the
 project root or `src/test/resources/`. Use environment variables instead of
 Java's former `-DKEY=value` system properties.
@@ -61,6 +119,10 @@ Optional settings:
 - `LT_GRID_URL` (defaults to `mobile-hub.lambdatest.com`)
 - `platform` / `PLATFORM`, `device` / `LT_DEVICE`, and `version` / `LT_VERSION`
 - `LT_BUILD_NAME`, `LT_TEST_NAME`, and `LT_PROJECT_NAME`
+  Cloud session names are assigned from each worker's spec filename before
+  the session starts (for example, `login-logout` or `mha-high-risk`).
+  If `LT_TEST_NAME` is set, it is used as a prefix followed by the spec name,
+  so parallel pack sessions remain distinguishable. Build names are unchanged.
 - `LT_ARTIFACTS_DIR` (defaults to `target/test-artifacts`)
 - `LT_WAIT_SECONDS` (defaults to `300`)
 - `LT_TEST_TIMEOUT_SECONDS` controls the whole test independently of element
@@ -80,6 +142,7 @@ Optional settings:
 ```bash
 npm run test:smoke
 npm run test:regression
+VG_ENVIRONMENT=mdev PLATFORM=iOS npm run test:smoke
 PLATFORM=iOS npm run test:smoke
 PLATFORM=iOS npm run test:regression
 ```
@@ -94,6 +157,8 @@ These named WebdriverIO suites run only the listed specs, sequentially
 provisioned member for each spec. They use the existing cloud, platform, app,
 and user-creation settings; no credentials are stored in the suite definitions.
 Regression also requires `INCORRECT_APP_PASSWORD`.
+Specs are resolved from `tests/smoke/` and `tests/regression/`; the scenario
+registry stores paths relative to `tests/`, not the former `tests/testScenarios/`.
 Direct runner selection is supported with
 `npm test -- --suite smoke` or `npm test -- --suite regression`; leave
 `LT_SCENARIO` unset or use a valid scenario from `src/config/runner.ts`.

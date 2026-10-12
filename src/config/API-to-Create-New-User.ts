@@ -1,4 +1,5 @@
 import { randomInt } from 'node:crypto';
+import { setTimeout as delay } from 'node:timers/promises';
 import { requiredSetting } from './mobileSessionInit.js';
 import { requiredUserCreationSetting, userCreationSetting } from './userCreation.js';
 
@@ -269,6 +270,64 @@ export interface UserInstructionIds {
   OnboardingReward_ID: number;
 }
 
+function networkErrorCodes(error: unknown): string[] {
+  const record = asRecord(error);
+  if (!record) return [];
+  const codes = typeof record.code === 'string' ? [record.code] : [];
+  if (record.cause) codes.push(...networkErrorCodes(record.cause));
+  if (Array.isArray(record.errors)) {
+    codes.push(...record.errors.flatMap(networkErrorCodes));
+  }
+  return [...new Set(codes)];
+}
+
+async function fetchUserInstructionBody(url: string, userName: string): Promise<unknown> {
+  const attempts = 3;
+  const timeoutMs = 30_000;
+  const endpoint = new URL(url);
+  const target = `${endpoint.origin}${endpoint.pathname}`;
+  const transientCodes = new Set([
+    'ECONNRESET', 'ECONNREFUSED', 'ETIMEDOUT', 'EAI_AGAIN',
+    'UND_ERR_CONNECT_TIMEOUT', 'UND_ERR_HEADERS_TIMEOUT', 'UND_ERR_BODY_TIMEOUT', 'UND_ERR_SOCKET'
+  ]);
+
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    let failure: Error;
+    let retryable = false;
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId: userName }),
+        signal: AbortSignal.timeout(timeoutMs)
+      });
+      if (response.ok) return await response.json();
+      retryable = [502, 503, 504].includes(response.status);
+      failure = new Error(`Get-user-instruction request failed with HTTP ${response.status} at ${target}.`);
+      await response.body?.cancel();
+    } catch (cause) {
+      const codes = networkErrorCodes(cause);
+      const timedOut = cause instanceof Error && cause.name === 'TimeoutError';
+      retryable = timedOut || (codes.length > 0 && codes.every(code => transientCodes.has(code)));
+      const detail = timedOut ? `timeout after ${timeoutMs} ms` : codes.join(', ') || 'no network error code';
+      failure = cause instanceof SyntaxError
+        ? new Error(`Get-user-instruction response contained invalid JSON at ${target}.`, { cause })
+        : new Error(
+          `Get-user-instruction request failed at ${target} (${detail}). ` +
+          'Check backend availability and this runner\'s VPN, DNS, proxy and TLS configuration.',
+          { cause }
+        );
+    }
+    if (!retryable || attempt === attempts) {
+      throw new Error(`${failure.message} Failed after ${attempt} attempt(s).`, { cause: failure });
+    }
+    const backoffMs = 500 * 2 ** (attempt - 1);
+    console.warn(`${failure.message} Retrying lookup (${attempt + 1}/${attempts}) in ${backoffMs} ms.`);
+    await delay(backoffMs);
+  }
+  throw new Error('Get-user-instruction request exhausted its attempts.');
+}
+
 export async function getUserInstruction(userName: string): Promise<UserInstructionIds> {
   if (!userName.trim()) {
     throw new Error('Getting user instructions requires a non-empty userName.');
@@ -276,18 +335,10 @@ export async function getUserInstruction(userName: string): Promise<UserInstruct
   const profilePrefix = getProfilePrefix();
   const zuulUrl = requiredUserCreationSetting(`${profilePrefix}ZUUL_URL`).replace(/\/+$/, '');
   const tenant = requiredUserCreationSetting(`${profilePrefix}TENANT_NUMBER`);
-  const response = await fetch(
+  const body = await fetchUserInstructionBody(
     `${zuulUrl}/vitality-manage-user-service-1/svc/${tenant}/getUserInstruction`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId: userName })
-    }
+    userName
   );
-  if (!response.ok) {
-    throw new Error(`Get-user-instruction request failed with HTTP ${response.status}.`);
-  }
-  const body: unknown = await response.json();
   const instructions = asRecord(body)?.instructions;
   if (!Array.isArray(instructions)) {
     throw new Error('Get-user-instruction response was missing the instructions array.');
