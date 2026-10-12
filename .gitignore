@@ -1,0 +1,10 @@
+node_modules/
+dist/
+target/
+test-output/
+reports/
+coverage/
+.env
+lambdatest.properties
+user-creation.properties
+src/test/resources/lambdatest.properties

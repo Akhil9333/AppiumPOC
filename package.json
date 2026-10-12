@@ -1,0 +1,41 @@
+{
+  "name": "appium-typescript",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "wdio run ./wdio.conf.ts",
+    "test:smoke": "cross-env LT_SCENARIO=loginAndLogout wdio run ./wdio.conf.ts --suite smoke",
+    "test:regression": "cross-env LT_SCENARIO=lockout wdio run ./wdio.conf.ts --suite regression",
+    "test:login": "cross-env LT_SCENARIO=login wdio run ./wdio.conf.ts",
+    "test:android": "cross-env PLATFORM=Android LT_SCENARIO=android-login wdio run ./wdio.conf.ts",
+    "test:ios": "cross-env PLATFORM=iOS LT_SCENARIO=ios-login wdio run ./wdio.conf.ts",
+    "test:lockout": "cross-env LT_SCENARIO=lockout wdio run ./wdio.conf.ts",
+    "test:mha": "cross-env LT_SCENARIO=mha wdio run ./wdio.conf.ts",
+    "test:mha-high-risk": "cross-env LT_SCENARIO=mha-high-risk wdio run ./wdio.conf.ts",
+    "test:screening": "cross-env LT_SCENARIO=screening wdio run ./wdio.conf.ts",
+    "test:unit": "node --import tsx --test tests/helpers/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "report:generate": "allure generate target/allure-results --clean -o target/allure-report",
+    "report:open": "allure open target/allure-report"
+  },
+  "devDependencies": {
+    "@wdio/allure-reporter": "^9.15.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.15.30",
+    "@wdio/cli": "^9.15.0",
+    "@wdio/globals": "^9.15.0",
+    "@wdio/local-runner": "^9.15.0",
+    "@wdio/mocha-framework": "^9.15.0",
+    "@wdio/spec-reporter": "^9.15.0",
+    "allure-commandline": "^2.34.1",
+    "cross-env": "^7.0.3",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "webdriverio": "^9.15.0"
+  },
+  "overrides": {
+    "basic-ftp": "6.2.1",
+    "serialize-javascript": "7.0.5"
+  }
+}

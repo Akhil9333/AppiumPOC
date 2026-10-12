@@ -1,4 +1,0 @@
-platform=android
-device=Galaxy S.*
-version=.*
-appId=lt://APP10160441201790686977713654

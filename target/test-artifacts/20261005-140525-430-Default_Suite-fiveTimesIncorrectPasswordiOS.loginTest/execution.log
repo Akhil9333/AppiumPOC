@@ -1,6 +1,0 @@
-[2026-10-05 14:05:25.435] Artifact directory: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-140525-430-Default_Suite-fiveTimesIncorrectPasswordiOS.loginTest
-[2026-10-05 14:05:25.436] Starting test execution.
-[2026-10-05 14:05:25.436] Parameters: [iPhone 12 .*, .*, iOS]
-[2026-10-05 14:05:25.448] Ignoring shared app id from LT_APP_ID/appID for iOS run. Use LT_IOS_APP_ID for platform-specific app selection. Shared app id was: lt://APP10160202261790773364514615
-[2026-10-05 14:05:25.450] Saved text artifact: /Users/rajudharavath/IdeaProjects/Mobile Appium/target/test-artifacts/20261005-140525-430-Default_Suite-fiveTimesIncorrectPasswordiOS.loginTest/20261005-140525-449-session-config.txt
-[2026-10-05 14:05:25.450] Using app capability: lt://APP1016040931790946175785731

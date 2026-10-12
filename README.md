@@ -1,207 +1,261 @@
-# Run Appium Tests with Java and TestNG on TestMu AI (Formerly LambdaTest)
+# Appium Mobile Tests with TypeScript
 
-<p align="center">
-  <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
-  <a href="https://mvnrepository.com/artifact/org.testng/testng"><img src="https://img.shields.io/maven-central/v/org.testng/testng.svg?style=for-the-badge&labelColor=000000" alt="TestNG version"></a>
-  <a href="https://community.testmuai.com/"><img src="https://img.shields.io/badge/Join%20the%20community-blueviolet.svg?style=for-the-badge&labelColor=000000" alt="Community"></a>
-</p>
+This project runs Android and iOS mobile UI tests with TypeScript, WebdriverIO,
+Mocha, and the TestMu AI (formerly LambdaTest) real-device cloud.
 
-## Getting Started
+## Prerequisites
 
-[TestMu AI](https://www.testmuai.com/) (Formerly LambdaTest) is the world's first full-stack AI Agentic Quality Engineering platform that empowers teams to test intelligently, smarter, and ship faster. Built for scale, it offers a full-stack testing cloud with 10K+ real devices and 3,000+ browsers. With AI-native test management, MCP servers, and agent-based automation, TestMu AI supports Selenium, Appium, Playwright, and all major frameworks. 
+- Node.js 20 or later and npm
+- A TestMu AI account with a username and access key
+- Appium-uploaded Android and/or iOS application IDs
 
-With TestMu AI (Formerly LambdaTest), you can run Appium tests in Java with TestNG across real Android and iOS devices. This sample shows how to configure Java TestNG Appium tests with Maven to run on the TestMu AI Real Device Cloud.
-
-- [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
-- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/) for the full setup walkthrough.
-
-### Prerequisites
-
-- Java 8 or higher
-- Maven
-- A TestMu AI (Formerly LambdaTest) account with your username and access key
-
-### Setup
-
-Clone and install dependencies:
+Install dependencies:
 
 ```bash
-git clone https://github.com/RajkumarVitality/Appium_Java.git && cd Appium_Java
-mvn clean install
+npm install
 ```
 
-Set your credentials before running the tests.
+## Configure credentials
 
-The tests resolve settings in this order at runtime:
+Set the following environment variables or copy
+[`lambdatest.properties.example`](./lambdatest.properties.example) to
+`lambdatest.properties` and fill in the values. Local credentials files are
+ignored by Git.
 
-1. JVM system properties such as `-DLT_USERNAME=...`
-2. Environment variables
-3. A local `lambdatest.properties` file in the project root or `src/test/resources/`
+Required settings:
 
-The following keys are supported:
+- `LT_USERNAME` and `LT_ACCESS_KEY` (legacy aliases `UserName` and `AccessKey`
+  are also accepted)
+- An App ID: set `appId` (direct override), `LT_ANDROID_APP_ID` /
+  `LT_IOS_APP_ID` (platform-specific), or `LT_APP_ID` (shared fallback). There
+  is no built-in default — the run fails fast with a clear error if none of
+  these are set. Note that the Android app ID used to differ by scenario
+  (login/ios-login/screening/mha used one app, lockout used another); you are
+  now responsible for setting the correct one per run.
+- `APP_PASSWORD` for registration of generated login/logout, MHA and lockout users,
+  and for screening login. `APP_USERNAME` is used for screening.
+- `INCORRECT_APP_PASSWORD` for the account-lockout test
+  (`APP_INCORRECT_PASSWORD` is also accepted as a legacy alias).
+  It must differ from `APP_PASSWORD`. The test provisions and locks a fresh
+  account; `LOCKOUT_USERNAME` is not required.
 
-- `LT_USERNAME` and `LT_ACCESS_KEY` are required.
-  - Legacy fallback variables `UserName` and `AccessKey` are also supported.
-- `APP_USERNAME` and `APP_PASSWORD` are required for the login/logout and screening scenarios.
-- `MHA_USERNAME` and `APP_PASSWORD` are required for the MHA journey.
-- `LOCKOUT_USERNAME` and `APP_INCORRECT_PASSWORD` are required for the account lockout scenario.
-  Use a dedicated account that can safely be locked, and a password known to be incorrect.
-- `LT_APP_ID` is optional as a shared fallback app id.
-- `appId` can be used as a direct runtime override for the app under test.
-- `LT_ANDROID_APP_ID` and `LT_IOS_APP_ID` can be used to override the uploaded app per platform.
-- `platform`, `device`, and `version` can be passed at runtime to override TestNG defaults or suite XML values.
-- `LT_GRID_URL` is optional and defaults to `mobile-hub.lambdatest.com`.
-- `LT_BUILD_NAME` optionally overrides the build name shown in the dashboard.
-- `LT_TEST_NAME` optionally overrides the test name shown in the dashboard.
-- `LT_PROJECT_NAME` optionally sets a project capability for the run.
-- `LT_ARTIFACTS_DIR` optionally changes where local screenshots and execution logs are stored. The default is `target/test-artifacts`.
-- App sessions now run with `fullReset=true` and `noReset=false` so the cloud device removes the app between sessions.
-- For an explicit uninstall call at teardown, you can also set `LT_ANDROID_APP_PACKAGE`, `LT_LOGIN_ANDROID_APP_PACKAGE`, `LT_LOGIN_IOS_BUNDLE_ID`, and `LT_IOS_BUNDLE_ID` when you know the package or bundle id of the uploaded app.
-- App sessions now run with `fullReset=true` and `noReset=false` so the cloud device removes the app between sessions.
-- For an explicit uninstall call at teardown, you can also set `LT_ANDROID_APP_PACKAGE`, `LT_LOGIN_ANDROID_APP_PACKAGE`, `LT_LOGIN_IOS_BUNDLE_ID`, and `LT_IOS_BUNDLE_ID` when you know the package or bundle id of the uploaded app.
+The mental-health assessment journeys, login/logout and lockout scenarios provision a new
+member account in a Mocha suite-level `before` hook for each worker run. Setup performs
+party creation, enrolment, registration, status calculation, login-event
+capture, reward/event processing and onboarding-instruction deletion. Setup failures
+fail the suite's setup hook and prevent its tests from running, preserving the
+original configuration or API error; there is no fallback to a fixed account.
+`testAccounts.member` exposes the selected profile's `LOGIN_PREFIX` plus the generated
+email only after setup succeeds. API requests use the unprefixed email.
+The password is always read from `APP_PASSWORD`, never stored in the fixture.
+Configure the profile's `API_BEARER_TOKEN`, `API_BASIC_AUTH`, `LOGIN_PREFIX`,
+`ZUUL_URL`, `TENANT_NUMBER`, `INTEGRATION_PLATFORM_BASE_URL`, `EMAIL_DOMAIN`
+and shared `configUserAgent` in user-creation settings before these runs.
 
-**Option 1: JVM system properties (works well from IntelliJ VM options)**
+Environment variables take precedence over `lambdatest.properties` in the
+project root or `src/test/resources/`. Use environment variables instead of
+Java's former `-DKEY=value` system properties.
+
+Optional settings:
+
+- `LT_GRID_URL` (defaults to `mobile-hub.lambdatest.com`)
+- `platform` / `PLATFORM`, `device` / `LT_DEVICE`, and `version` / `LT_VERSION`
+- `LT_BUILD_NAME`, `LT_TEST_NAME`, and `LT_PROJECT_NAME`
+- `LT_ARTIFACTS_DIR` (defaults to `target/test-artifacts`)
+- `LT_WAIT_SECONDS` (defaults to `300`)
+- `LT_TEST_TIMEOUT_SECONDS` controls the whole test independently of element
+  waits. Every scenario defaults to `900` seconds (15 minutes), regardless of
+  platform. It must exceed `LT_WAIT_SECONDS`.
+- `LT_OPEN_LIVE_SESSION` (defaults to `true`): as soon as a mobile session
+  starts, its LambdaTest App Automation dashboard page (live device view +
+  Appium logs) is opened automatically in your default browser. Set this to
+  `false` to disable auto-opening; it's also skipped automatically when a `CI`
+  environment variable is set. The session ID and dashboard URL are always
+  logged to the console and to `execution.log` regardless of this setting.
+
+## Run the scenarios
+
+### Smoke and regression packs
 
 ```bash
-mvn test -P ios-single -DLT_USERNAME="YOUR_USERNAME" -DLT_ACCESS_KEY="YOUR_ACCESS_KEY"
+npm run test:smoke
+npm run test:regression
+PLATFORM=iOS npm run test:smoke
+PLATFORM=iOS npm run test:regression
 ```
 
-Example with runtime mobile target overrides:
+| Pack | Specs |
+| --- | --- |
+| Smoke | `login-logout.spec.ts`, `mha-high-risk.spec.ts` |
+| Regression | `incorrect-password-lockout.spec.ts`, `mha-low-risk.spec.ts` |
+
+These named WebdriverIO suites run only the listed specs, sequentially
+(`maxInstances: 1`), with a separate, freshly reset mobile session and a newly
+provisioned member for each spec. They use the existing cloud, platform, app,
+and user-creation settings; no credentials are stored in the suite definitions.
+Regression also requires `INCORRECT_APP_PASSWORD`.
+Direct runner selection is supported with
+`npm test -- --suite smoke` or `npm test -- --suite regression`; leave
+`LT_SCENARIO` unset or use a valid scenario from `src/config/runner.ts`.
+
+MHA question screens use native iOS accessibility-ID and predicate selectors to
+avoid XPath hierarchy evaluation during each question/answer/button lookup.
+Android selectors and visibility waits remain unchanged. Device/cloud command
+latency still affects execution time; this does not disable animation or readiness checks.
+After the final assessment answer, the flow clicks Submit once without first
+waiting for a question Next button. Intermediate question and section navigation
+is preserved.
+
+### User-creation environments
+
+User provisioning reads its settings from `user-creation.properties`, separately
+from the mobile/cloud settings in `lambdatest.properties`. Copy
+[`user-creation.properties.example`](./user-creation.properties.example) to
+`user-creation.properties` and fill in the selected profile. The local file is
+ignored by Git; never commit API credentials.
+
+Set `VG_ENVIRONMENT` to `mdev`, `ca-test`, or `ca-dev` (default: `mdev`).
+The corresponding prefixes are `VG_MDEV_`, `VG_CA_TEST_`, and `VG_CA_DEV_`.
+Each profile requires `TENANT_NUMBER`, `ZUUL_URL`,
+`INTEGRATION_PLATFORM_BASE_URL`, `VITALITY_PRODUCT_KEY`,
+`MEMBERSHIP_REFERENCE_KEYS` (comma-separated), `EMAIL_DOMAIN`, and
+`API_BASIC_AUTH` (base64 credentials, optionally prefixed with `Basic`).
+Product keys accept `VITALITYACTIVEV1`, `SLI_VITALITY`, or numeric values.
+Membership reference keys accept `POLICY_NUMBER`,
+`PARTNER_CONTRACT_NUMBER`, or numeric values.
+
+Runtime environment variables override this separate file:
 
 ```bash
-mvn test -Dtest=testscenarios.FiveTimesIncorrectPasswordIOSTest \
-  -DLT_USERNAME="YOUR_USERNAME" \
-  -DLT_ACCESS_KEY="YOUR_ACCESS_KEY" \
-  -Dplatform="iOS" \
-  -Ddevice="iPhone 15" \
-  -Dversion="17" \
-  -DappId="lt://APP123456789"
+VG_ENVIRONMENT=ca-test PLATFORM=Android npm run test:mha-high-risk
 ```
 
-**macOS / Linux:**
+Provisioning settings previously stored in `lambdatest.properties` must be moved
+to the new file. These settings only apply when a test calls
+`resolveTestUserCredentials()`; fixed-account tests are unchanged.
 
 ```bash
-export LT_USERNAME="YOUR_USERNAME"
-export LT_ACCESS_KEY="YOUR_ACCESS_KEY"
+PLATFORM=Android npm run test:login
+PLATFORM=iOS npm run test:login
+npm run test:android
+npm run test:ios
+npm run test:lockout
+npm run test:mha
+PLATFORM=Android npm run test:mha-high-risk
+PLATFORM=iOS npm run test:mha-high-risk
+npm run test:screening
 ```
 
-**Windows:**
+The login, lockout, MHA, and screening commands use `platform` / `PLATFORM` if set;
+otherwise they default to Android. Override the target with `PLATFORM=iOS`
+(macOS/Linux) or set it in `lambdatest.properties`.
+
+`LT_SCENARIO` selects the matching uploaded app and spec:
+
+| Scenario | `LT_SCENARIO` | Default platform app |
+| --- | --- | --- |
+| Platform-selected login/logout | `login` | Android or iOS login app |
+| Android login/logout | `android-login` | Android login app |
+| iOS login/logout | `ios-login` | iOS login app |
+| Incorrect-password lockout | `lockout` | Lockout app |
+| Mental-health assessment | `mha` | MHA app |
+| Screening/vaccination form | `screening` | MHA app |
+
+`test:login` runs `tests/testScenarios/login-logout.spec.ts` on the selected platform.
+The `test:android` and `test:ios` commands run the same spec with an explicit
+platform and retain their platform-specific scenario defaults.
+
+You can target another device or uploaded app without editing the project:
 
 ```bash
-set LT_USERNAME="YOUR_USERNAME"
-set LT_ACCESS_KEY="YOUR_ACCESS_KEY"
+PLATFORM=iOS LT_DEVICE="iPhone 15" LT_VERSION=17 LT_IOS_APP_ID=lt://APP_ID npm run test:ios
 ```
 
-**Option 3: Local properties file**
-
-Copy `lambdatest.properties.example` to `lambdatest.properties` in the project root (or to `src/test/resources/lambdatest.properties`) and fill in your values:
-
-App credentials use the same setting precedence as the cloud credentials. Keep real
-credentials in the ignored local properties file, environment variables, or JVM
-properties; never commit them. Generated `target/`, `test-output/`, and IDE files
-are excluded from Git.
-
-```properties
-LT_USERNAME=YOUR_USERNAME
-LT_ACCESS_KEY=YOUR_ACCESS_KEY
-platform=iOS
-device=iPhone 15
-version=17
-appId=lt://APP123456789
-```
-
-### Framework structure
-
-The project now uses a lightweight Page Object Model with shared session setup:
-
-- `framework/` contains the reusable mobile session base, execution reporter, LambdaTest config, and TestNG listener.
-- `screens/` contains the page objects for welcome, login, home, profile, and settings screens.
-- `LoginAndLogoutFunctionality_iOS`, `LoginAndLogoutFunctionality_Android`, and `FiveTimesIncorrectPasswordIOSTest` reuse those page objects instead of duplicating locators.
-
-### Run tests
+To type-check the project:
 
 ```bash
-mvn test -P android-single
-mvn test -P ios-single
+npm run typecheck
 ```
 
+Run the local unit tests without a device or cloud session:
 
-View results on your TestMu AI dashboard.
+```bash
+npm run test:unit
+```
 
-### Execution screenshots and logs
+Mobile scenarios use WebdriverIO's Mocha adapter with the BDD interface
+(`describe` / `it`). Local utility regression tests use Node's built-in test
+runner with the existing TypeScript loader.
 
-Each TestNG run now generates local execution artifacts automatically:
-
-- step/checkpoint screenshots during the test flow
-- a `failure.png` screenshot when a test fails before teardown
-- a failure page source XML snapshot when available
-- a per-test `execution.log` file with timestamped execution steps
-
-Artifacts are written under:
+## Project structure
 
 ```text
-target/test-artifacts/
+src/
+  config/       # Credentials, capabilities, scenario registry, timeouts
+  screens/      # Platform-aware page objects and assertions
+  utils/        # Mobile session interactions, reporting, browser launching
+tests/
+  fixtures/     # Non-secret account data and assessment JSON
+  helpers/      # Reusable navigation, login, and home-screen flows
+  specs/        # Mocha mobile scenarios (*.spec.ts)
+  unit/         # Local regression tests (*.test.ts)
+wdio.conf.ts    # Runner settings and session/reporting hooks
 ```
 
-Each test gets its own timestamped folder. You can override the root folder by setting:
+Five specs cover login/logout (Android and iOS), lockout, MHA low risk, MHA high
+risk, and screening/vaccination. `src/config/runner.ts` contains the
+scenario-to-spec registry and smoke/regression suite definitions. Common flows stay in helpers, while
+screen-specific locators and interactions stay in page objects.
+
+Each test writes its execution log, screenshots, and (on failure) page source to
+a timestamped directory under `target/test-artifacts/`. Generated artifacts,
+legacy `test-output/` reports, and coverage output are ignored by Git. These
+directories are recreated as needed; they do not belong in source control.
+
+## Allure reports
+
+Every mobile scenario also writes Allure results to `target/allure-results/`.
+The console spec reporter and existing timestamped artifacts remain enabled.
+Allure includes execution steps, screenshots, session configuration, execution
+logs, and page source captured on failure.
+
+Run a scenario and then generate and open its HTML report:
 
 ```bash
-export LT_ARTIFACTS_DIR="custom-artifacts-dir"
+PLATFORM=Android npm run test:mha-high-risk
+npm run report:generate
+npm run report:open
 ```
 
-### Local testing with TestMu AI Tunnel
+Run report generation even when the test fails to inspect the failure evidence.
+The Allure command-line tool requires Java on your PATH (`JAVA_HOME` may also
+be used). Report generation is explicit, so it does not change the test exit
+status or open another browser during test execution.
 
-To test locally hosted apps, set up the TestMu AI tunnel. OS-specific guides:
+Results accumulate across runs. `report:generate` replaces only the generated
+HTML report, not raw results. For a fresh report, remove the specific
+`target/allure-results/` directory before starting the next run. Both results
+and reports are ignored by Git under `target/`. They can contain account and
+screen data; keep them private and restrict access to CI artifacts.
 
-- [Local Testing on Windows](https://www.testmuai.com/support/docs/local-testing-for-windows/)
-- [Local Testing on macOS](https://www.testmuai.com/support/docs/local-testing-for-macos/)
-- [Local Testing on Linux](https://www.testmuai.com/support/docs/local-testing-for-linux/)
+## Scrolling
 
-Add the following to your capabilities:
+Scroll-to-element actions use short, slow swipes (15% of the screen height over
+1.5 seconds), hold before releasing to reduce momentum, and wait 750 ms for the
+screen to settle. Before each swipe, the target is checked for visibility and an
+on-screen center. Scrolling stops and clicks the target as soon as it is visible,
+or fails after the page object's configured maximum number of swipes.
 
-```js
-tunnel: true,
-```
+## iOS execution time
 
-## Contributions
+Exact iOS `name` XPath locators use native XCUITest predicate queries, including
+Next/Submit button alternatives. Complex XPath locators remain unchanged.
+MHA answer selection uses a native label/name predicate and a single
+wait-and-click operation. Each section and question is logged so a stalled
+question can be identified instead of only seeing the overall timeout.
 
-Contributions are welcome. Open an issue to discuss your idea before submitting a pull request. When reporting bugs, include your Java version, OS, and Maven version.
-
-## TestMu AI (Formerly LambdaTest) Community
-
-Connect with testers and developers in the [TestMu AI Community](https://community.testmuai.com/). Ask questions, share what you are building, and discuss best practices in test automation and DevOps.
-  
-## TestMu AI (Formerly LambdaTest) Certifications
-
-Earn free [TestMu AI Certifications](https://www.testmuai.com/certifications/) for testers, developers, and QA engineers. Validate your skills in Selenium, Cypress, Playwright, Appium, Espresso and more. Industry-recognized, shareable on LinkedIn, and built by practitioners, not marketers.
-
-## Learning Resources by TestMu AI (Formerly LambdaTest)
-
-Learn modern testing through tutorials, guides, videos, and weekly updates:
-
-* [TestMu AI Blog](https://www.testmuai.com/blog/)
-* [TestMu AI Learning Hub](https://www.testmuai.com/learning-hub/)
-* [TestMu AI on YouTube](https://www.youtube.com/@TestMuAI)
-* [TestMu AI Newsletter](https://www.testmuai.com/newsletter/)
-  
-## LambdaTest is Now TestMu AI
-
-On **January 12, 2026**, [LambdaTest evolved to TestMu AI](https://www.testmuai.com/lambdatest-is-now-testmuai/), the world's first fully autonomous **Agentic AI Quality Engineering Platform**.
-
-Same team. Same infrastructure. Same customer accounts. All existing LambdaTest logins, scripts, capabilities, and integrations continue to work without change.
-
-👉 Find the new home for [LambdaTest](https://www.testmuai.com).
-
-### How LambdaTest Evolved into TestMu AI
-
-In 2017, we launched LambdaTest with a simple mission: make testing fast, reliable, and accessible. As LambdaTest grew, we expanded into Test Intelligence, Visual Regression Testing, Accessibility Testing, API Testing, and Performance Testing, covering the full depth of the testing lifecycle.
-
-As software development entered the AI era, testing had to evolve, too. We rebuilt the architecture to be AI-native from the ground up, with autonomous agents that **plan, author, execute, analyze, and optimize tests** while keeping humans in the loop. The platform integrates with your repos, CI, IDEs, and terminals, continuously learning from every code change and development signal.
-
-That evolution earned a new name: **TestMu AI**, built for an AI-first future of quality engineering. TestMu is not a new name for us. It is the name of our annual community conference, which has brought together 100,000+ quality engineers to discuss how AI would reshape testing, long before that became an industry norm. 
-
-What started as a high-performance cloud testing platform has transformed into an AI-native, multi-agent system powering a connected, end-to-end quality layer. That evolution defined a new identity: LambdaTest evolved into TestMu AI, built for an AI-first future of quality engineering.
-
-## Support
-
-Got a question? Email [support@testmuai.com](mailto:support@testmuai.com) or chat with us 24x7 from our chat portal.
+Every execution has a 15-minute whole-test timeout by default, including the
+MHA journey's login, scrolling, questions, and results verification.
+Increasing the whole-test timeout does
+not increase individual element waits. For a custom limit, set
+`LT_TEST_TIMEOUT_SECONDS` in the local properties file or environment.
