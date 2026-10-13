@@ -47,6 +47,30 @@ export class MHAQuestionsScreen extends BaseScreen {
       "//*[@name='btn_vg_submit_button']");
   }
 
+  async assertUnansweredQuestionNextDisabled(expectedQuestion: string): Promise<void> {
+    await this.assertQuestion(0, normalizeConfiguredText(expectedQuestion));
+    const nextButton = await this.element(
+      "//*[@resource-id='btn_vg_next_button']", "//*[@name='btn_vg_next_button']"
+    );
+    assert.equal(await nextButton.isEnabled(), false, 'MHA Next must be disabled before selecting an answer');
+    await this.assertQuestion(0, normalizeConfiguredText(expectedQuestion));
+  }
+
+  closeAssessment(): Promise<void> {
+    return this.click("//*[@resource-id='vg_close_button']", "//*[@name='vg_close_button']");
+  }
+
+  async confirmAssessmentExit(): Promise<void> {
+    await this.assertTextEquals(
+      await this.element(
+        "//*[@resource-id='txtareyousureyouwanttoclosethesurvey_001']",
+        "//*[@name='txtareyousureyouwanttoclosethesurvey_001']"
+      ),
+      'Are you sure you want to exit this assessment?'
+    );
+    await this.click("//*[@resource-id='ctrl_txtyes_001']", "//*[@name='ctrl_txtyes_001']");
+  }
+
   async assertquestions(): Promise<void> {
     await this.assertTextEquals(await this.element("//*[@resource-id='question_0']", 
       "//*[@name='question_0']"), 'Mental health history');

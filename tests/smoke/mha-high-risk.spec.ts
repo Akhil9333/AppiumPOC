@@ -4,11 +4,11 @@ import { MHALandingScreen } from '../../src/pages/MHALandingScreen.js';
 import { MHAQuestionsScreen } from '../../src/pages/MHAQuestionsScreen.js';
 import { MHASectionScreen } from '../../src/pages/MHASectionScreen.js';
 import { MHASuccessfulCompleteScreen } from '../../src/pages/MHASuccessfulCompleteScreen.js';
-import { initializeTestAccounts, testAccounts } from '../helpers/user_helpers/TestUser.js';
+import { assertTestAccountReady, testAccounts } from '../helpers/user_helpers/TestUser.js';
 import { loginToHome } from '../helpers/genericFlow.js';
 
 describe('high-risk mental health assessment journey', () => {
-  before('provision a new member account', initializeTestAccounts);
+  before('verify pre-session member account', assertTestAccountReady);
 
   it('submits the high-risk assessment and verifies completion', async () => {
     executionReporter.log('MHA_Validate the High Risk assessment.');

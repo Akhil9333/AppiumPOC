@@ -7,15 +7,15 @@ import { WelcomeScreen } from '../../src/pages/WelcomeScreen.js';
 import { HealthyLivingScreen } from '../../src/pages/HealthyLivingScreen.js';
 import { LoginScreen } from '../../src/pages/LoginScreen.js';
 import { MobileSession } from '../../src/utils/Mobile Utils_Scrolll_Xpath_Timeout.js';
-import { testAccounts } from './user_helpers/TestUser.js';
+import { initializeTestAccountsForSpecs, testAccounts } from './user_helpers/TestUser.js';
 
-for (const file of ['login-logout', 'mha-low-risk', 'mha-high-risk', 'incorrect-password-lockout']) {
+for (const file of ['login-logout', 'mha-low-risk', 'mha-high-risk', 'incorrect-password-lockout', 'mha-unanswered', 'mha-exit-partial']) {
   const outcomes = file === 'incorrect-password-lockout'
     ? ['success', 'api-error', 'same-password']
     : ['success', 'api-error'];
   for (const outcome of outcomes) {
     const succeeds = outcome === 'success';
-    test(`${file} suite provisioning: ${outcome}`, async t => {
+    test(`${file} pre-session provisioning: ${outcome}`, async t => {
       const settings = {
         VG_ENVIRONMENT: 'mdev',
         VG_MDEV_LOGIN_PREFIX: 'mdev--',
@@ -112,6 +112,19 @@ for (const file of ['login-logout', 'mha-low-risk', 'mha-high-risk', 'incorrect-
       const pack = ['login-logout', 'mha-high-risk'].includes(file) ? 'smoke' : 'regression';
       const specUrl = new URL(`../${pack}/${file}.spec.ts`, import.meta.url);
       await import(`${specUrl.href}?provisioning=${outcome}`);
+      let mobileSessionsStarted = 0;
+      if (!succeeds) {
+        await assert.rejects(initializeTestAccountsForSpecs([specUrl.href]), outcome === 'same-password'
+          ? /INCORRECT_APP_PASSWORD must differ from APP_PASSWORD/
+          : /expected HTTP 201 but received HTTP 500/);
+        assert.throws(() => testAccounts.member, /has not been provisioned/);
+        assert.equal(mobileSessionsStarted, 0);
+        if (outcome === 'same-password') assert.equal(fetchMock.mock.callCount(), 0);
+        return;
+      }
+      await initializeTestAccountsForSpecs([specUrl.href]);
+      assert.equal(fetchMock.mock.callCount(), 9);
+      mobileSessionsStarted++;
       let bodiesRun = 0;
       let registeredTests = 0;
       mocha.suite.eachTest(mobileTest => {
@@ -131,27 +144,19 @@ for (const file of ['login-logout', 'mha-low-risk', 'mha-high-risk', 'incorrect-
         };
       });
       assert.equal(registeredTests, 1);
-      const errors: Error[] = [];
       const failures = await new Promise<number>(resolve => {
-        mocha.run(resolve).on('fail', (_runnable, error) => errors.push(error));
+        mocha.run(resolve);
       });
-      assert.equal(failures, succeeds ? 0 : 1);
-      assert.equal(bodiesRun, succeeds ? 1 : 0);
+      assert.equal(failures, 0);
+      assert.equal(bodiesRun, 1);
+      assert.equal(fetchMock.mock.callCount(), 9);
+      assert.equal(mobileSessionsStarted, 1);
       if (file === 'incorrect-password-lockout' && succeeds) {
         assert.deepEqual(usernames, [`mdev--${email}`]);
         assert.deepEqual(passwords, ['intentionally-wrong-password']);
         assert.equal(submits, 6);
         assert.equal(incorrectMessages, 5);
         assert.equal(lockoutMessages, 1);
-      }
-      if (!succeeds) {
-        if (outcome === 'same-password') {
-          assert.match(errors[0]?.message ?? '', /INCORRECT_APP_PASSWORD must differ from APP_PASSWORD/);
-          assert.equal(fetchMock.mock.callCount(), 0);
-        } else {
-          assert.match(errors[0]?.message ?? '', /expected HTTP 201 but received HTTP 500/);
-          assert.throws(() => testAccounts.member, /has not been provisioned/);
-        }
       }
     });
   }

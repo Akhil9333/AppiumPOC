@@ -1,10 +1,10 @@
 import { executionReporter } from '../../src/utils/ExecutionReporter.js';
 import { SettingsScreen } from '../../src/pages/SettingsScreen.js';
-import { initializeTestAccounts, testAccounts } from '../helpers/user_helpers/TestUser.js';
+import { assertTestAccountReady, testAccounts } from '../helpers/user_helpers/TestUser.js';
 import { loginToHome } from '../helpers/genericFlow.js';
 
 describe('Mobile login and logout', () => {
-  before('provision a new member account', initializeTestAccounts);
+  before('verify pre-session member account', assertTestAccountReady);
 
   it('logs in and logs out successfully', async () => {
     executionReporter.log('Running mobile login/logout scenario.');

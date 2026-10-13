@@ -1,11 +1,13 @@
 import type { MobilePlatform } from './mobileSessionInit.js';
 
 export const scenarios = {
-  'loginAndLogout': { file: 'smoke/login-logout.spec.ts', name: 'Login and Logout Functionality Test' },
-  'lockout': { file: 'regression/incorrect-password-lockout.spec.ts', name: '5 Times Incorrect Password Test' },
-  'mha-low-risk': { file: 'regression/mha-low-risk.spec.ts', name: 'MHA Low Risk Assessment' },
-  'mha-high-risk': { file: 'smoke/mha-high-risk.spec.ts', name: 'MHA High Risk Assessment' },
-  'screening': { file: 'regression/screening-vaccination.spec.ts', name: 'Screening Vaccination Form Submission' }
+  'loginAndLogout': { file: 'smoke/login-logout.spec.ts', name: 'Login and Logout Functionality Test', provisionMember: true },
+  'lockout': { file: 'regression/incorrect-password-lockout.spec.ts', name: '5 Times Incorrect Password Test', provisionMember: true },
+  'mha-low-risk': { file: 'regression/mha-low-risk.spec.ts', name: 'MHA Low Risk Assessment', provisionMember: true },
+  'mha-high-risk': { file: 'smoke/mha-high-risk.spec.ts', name: 'MHA High Risk Assessment', provisionMember: true },
+  'mha-unanswered': { file: 'regression/mha-unanswered.spec.ts', name: 'MHA Required Answer Validation', provisionMember: true },
+  'mha-exit-partial': { file: 'regression/mha-exit-partial.spec.ts', name: 'MHA Exit Partial Assessment', provisionMember: true },
+  'screening': { file: 'regression/screening-vaccination.spec.ts', name: 'Screening Vaccination Form Submission', provisionMember: false }
 } as const;
 
 export type Scenario = keyof typeof scenarios;

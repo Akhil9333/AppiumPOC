@@ -87,11 +87,16 @@ Required settings:
   account; `LOCKOUT_USERNAME` is not required.
 
 The mental-health assessment journeys, login/logout and lockout scenarios provision a new
-member account in a Mocha suite-level `before` hook for each worker run. Setup performs
+member account in the worker's WebdriverIO `beforeSession` hook, before opening
+the cloud mobile session. Each spec receives a fresh account. Setup performs
 party creation, enrolment, registration, status calculation, login-event
 capture, reward/event processing and onboarding-instruction deletion. Setup failures
-fail the suite's setup hook and prevent its tests from running, preserving the
-original configuration or API error; there is no fallback to a fixed account.
+are logged with the original configuration or API error and terminate that
+worker with exit code 1 before any real mobile session is opened; there is no
+fallback to a fixed account. This explicit worker exit is necessary because
+WebdriverIO otherwise logs ordinary `beforeSession` errors and continues.
+Mocha suite hooks only verify that the account is ready, without provisioning again.
+The fixed-account screening scenario does not provision a member.
 `testAccounts.member` exposes the selected profile's `LOGIN_PREFIX` plus the generated
 email only after setup succeeds. API requests use the unprefixed email.
 The password is always read from `APP_PASSWORD`, never stored in the fixture.
@@ -109,6 +114,12 @@ For persistent failures, check backend availability and the runner's VPN, DNS,
 proxy and TLS configuration. The lookup runs from the Node.js worker, not from
 the cloud device. Account creation and other provisioning writes are not retried
 automatically, to avoid duplicate side effects.
+
+`captureLoginEvents` also has a 30-second request timeout. Failures identify the
+selected integration-platform setting, server origin and network error code,
+preserving the original cause without logging tokens, payloads or member IDs.
+This write is never automatically retried: after a connection failure, check
+backend logs to determine whether it was applied before replaying the request.
 
 Environment variables take precedence over `lambdatest.properties` in the
 project root or `src/test/resources/`. Use environment variables instead of
@@ -169,7 +180,37 @@ Android selectors and visibility waits remain unchanged. Device/cloud command
 latency still affects execution time; this does not disable animation or readiness checks.
 After the final assessment answer, the flow clicks Submit once without first
 waiting for a question Next button. Intermediate question and section navigation
-is preserved.
+is preserved. Assessment inputs are loaded from
+[`mha-low-risk-assessment.json`](./tests/fixtures/mha-low-risk-assessment.json)
+and [`mha-high-risk-assessment.json`](./tests/fixtures/mha-high-risk-assessment.json)
+for the respective journeys.
+
+### MHA negative tests
+
+The opt-in `mha-unanswered` scenario provisions a fresh member and verifies
+that Next is disabled on the first required question without selecting an
+answer. It preserves the existing navigation selectors and is not included
+in the default smoke or regression packs.
+
+```bash
+LT_SCENARIO=mha-unanswered PLATFORM=Android npm test
+LT_SCENARIO=mha-unanswered PLATFORM=iOS npm test
+```
+
+The opt-in `mha-exit-partial` scenario answers the first question, closes the
+assessment, verifies the exit confirmation, selects Yes and checks that the MHA
+landing screen displays Start with zero points. It does not yet verify reopening
+or saved answers.
+
+```bash
+LT_SCENARIO=mha-exit-partial PLATFORM=Android npm test
+LT_SCENARIO=mha-exit-partial PLATFORM=iOS npm test
+```
+
+Incomplete submission, exit/resume, offline submission, duplicate submission,
+answer revision and session expiry are not yet automated. Their expected
+behavior, controls and backend verification or fault-injection mechanisms
+must be confirmed before adding executable specs.
 
 ### User-creation environments
 

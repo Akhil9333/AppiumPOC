@@ -68,8 +68,11 @@ creating a placeholder test that appears runnable.
 - Create kebab-case `*.spec.ts` files in the requested pack folder. Keep smoke
   and regression membership as explicitly requested; do not automatically add
   smoke tests to regression.
-- Reuse `initializeTestAccounts` in a suite-level provisioning hook and access
-  `testAccounts.member` only after it succeeds when a fresh member is required.
+- Set `provisionMember: true` in the scenario registry when a fresh member is
+  required. The worker's `beforeSession` hook provisions it before mobile session
+  creation. Use `assertTestAccountReady` in the suite hook and access
+  `testAccounts.member` only after pre-session provisioning succeeds; do not
+  provision again inside the spec.
   Use `loginToHome` or `loginWithUsername` for established navigation.
 - Read secrets through the existing required-setting helpers. Never hardcode
   passwords, API tokens, cloud keys, real member identifiers, or account emails.

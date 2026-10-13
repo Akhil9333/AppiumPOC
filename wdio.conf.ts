@@ -18,6 +18,7 @@ import { browser } from '@wdio/globals';
 import { addAttachment, addStep } from '@wdio/allure-reporter';
 import { executionTimeouts } from './src/config/timeoutsHandling.js';
 import { resolveScenario, scenarios, suites } from './src/config/runner.js';
+import { initializeTestAccountsForSpecs } from './tests/helpers/user_helpers/TestUser.js';
 
 const platform: MobilePlatform = selectedPlatform();
 const scenario = resolveScenario(settingOr('LT_SCENARIO', 'loginAndLogout'), platform);
@@ -54,8 +55,15 @@ export const config: WebdriverIO.Config = {
     timeout: timeouts.test,
     retries: 0
   },
-  beforeSession(_config, capabilities, specs) {
-    setSessionNameFromSpecs(capabilities, specs);
+  async beforeSession(_config, capabilities, specs) {
+    try {
+      setSessionNameFromSpecs(capabilities, specs);
+      await initializeTestAccountsForSpecs(specs);
+    } catch (error) {
+      console.error('[UserProvisioning] Pre-session setup failed; stopping worker without opening a mobile session.', error);
+      // WebdriverIO logs and swallows hook errors; terminate only this worker.
+      process.exit(1);
+    }
   },
   async beforeTest(test) {
     executionReporter.startTest(test.parent, test.title, { addAttachment, addStep });
