@@ -30,7 +30,7 @@ export class LoginScreen extends BaseScreen {
 
   async enterPassword(password: string): Promise<void> {
     await this.type("//*[@resource-id='txtpassword_001_text']", "//*[@name='txtpassword_001_text']", password);
-    await browser.pause(1_000);
+    await browser.pause(300);
   }
 
   submit(): Promise<void> {

@@ -22,11 +22,17 @@ export class MHALandingScreen extends BaseScreen {
   }
 
   async isVisibleMHAStartButton(): Promise<boolean> {
-    return this.isVisible("//*[@resource-id='btnstartassessment_001']", "//*[@name='btnstartassessment_001']");
+    return this.isVisible(
+      "//*[@resource-id='btnstartassessment_001'] | //*[@resource-id='btn_ctrl_btnstartassessment_001']",
+      "//*[@name='btnstartassessment_001'] | //*[@name='btn_ctrl_btnstartassessment_001']"
+    );
   }
 
   clickMHAStartButton(): Promise<void> {
-    return this.click("//*[@resource-id='btn_ctrl_btnstartassessment_001']", "//*[@name='btn_ctrl_btnstartassessment_001']");
+    return this.click(
+      "//*[@resource-id='btnstartassessment_001'] | //*[@resource-id='btn_ctrl_btnstartassessment_001']",
+      "//*[@name='btnstartassessment_001'] | //*[@name='btn_ctrl_btnstartassessment_001']"
+    );
   }
 
   clickIundertandOnDataPrivacyScreen(): Promise<void> {

@@ -8,17 +8,17 @@ import { MobileSession } from '../../src/utils/Mobile Utils_Scrolll_Xpath_Timeou
 
 test('every registered scenario points to an existing Mocha spec', () => {
   for (const [scenario, definition] of Object.entries(scenarios)) {
-    assert.match(definition.file, /^[a-z0-9-]+\.spec\.ts$/);
-    assert.ok(existsSync(new URL(`../testScenarios/${definition.file}`, import.meta.url)), scenario);
+    assert.match(definition.file, /^(smoke|regression)\/[a-z0-9-]+\.spec\.ts$/);
+    assert.ok(existsSync(new URL(`../${definition.file}`, import.meta.url)), scenario);
     assert.equal(resolveScenario(scenario, 'Android'), scenario);
     assert.equal(resolveScenario(scenario, 'iOS'), scenario);
   }
 });
 
-test('generic login resolves to the matching platform-specific scenario', () => {
-  assert.equal(resolveScenario('login', 'Android'), 'android-login');
-  assert.equal(resolveScenario('login', 'iOS'), 'ios-login');
-  assert.equal(scenarios['android-login'].file, scenarios['ios-login'].file);
+test('login/logout selects the same cross-platform spec on Android and iOS', () => {
+  assert.equal(resolveScenario('loginAndLogout', 'Android'), 'loginAndLogout');
+  assert.equal(resolveScenario('loginAndLogout', 'iOS'), 'loginAndLogout');
+  assert.equal(scenarios.loginAndLogout.file, 'smoke/login-logout.spec.ts');
 });
 
 test('high-risk MHA uses the runtime platform without a scenario override', () => {

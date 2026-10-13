@@ -83,11 +83,14 @@ for (const platform of ['Android', 'iOS'] as const) {
   });
 }
 
-test('assessment resource loader reads the relocated fixture unchanged', async t => {
-  const expected = JSON.parse(await readFile(new URL('../fixtures/mha-assessment.json', import.meta.url), 'utf8'));
-  const screen = new MHAQuestionsScreen(new MobileSession('Android'));
-  let loaded: unknown;
-  t.mock.method(screen, 'completeAssessment', async (assessment: unknown) => { loaded = assessment; });
-  await screen.completeAssessmentFromResource('mha-assessment.json');
-  assert.deepEqual(loaded, expected);
-});
+for (const risk of ['low', 'high']) {
+  test(`assessment resource loader reads the ${risk}-risk fixture unchanged`, async t => {
+    const resourceName = `mha-${risk}-risk-assessment.json`;
+    const expected = JSON.parse(await readFile(new URL(`../fixtures/${resourceName}`, import.meta.url), 'utf8'));
+    const screen = new MHAQuestionsScreen(new MobileSession('Android'));
+    let loaded: unknown;
+    t.mock.method(screen, 'completeAssessment', async (assessment: unknown) => { loaded = assessment; });
+    await screen.completeAssessmentFromResource(resourceName);
+    assert.deepEqual(loaded, expected);
+  });
+}

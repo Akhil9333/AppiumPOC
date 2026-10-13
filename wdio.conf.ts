@@ -7,6 +7,7 @@ import {
   logSharedAppIdWarning,
   selectedPlatform,
   sessionDashboardUrl,
+  setSessionNameFromSpecs,
   settingOr,
   shouldOpenLiveSession
 } from './src/config/mobileSessionInit.js';
@@ -17,6 +18,7 @@ import { browser } from '@wdio/globals';
 import { addAttachment, addStep } from '@wdio/allure-reporter';
 import { executionTimeouts } from './src/config/timeoutsHandling.js';
 import { resolveScenario, scenarios, suites } from './src/config/runner.js';
+import { initializeTestAccountsForSpecs } from './tests/helpers/user_helpers/TestUser.js';
 
 const platform: MobilePlatform = selectedPlatform();
 const scenario = resolveScenario(settingOr('LT_SCENARIO', 'loginAndLogout'), platform);
@@ -27,7 +29,7 @@ let liveSessionUrl: string | undefined;
 
 export const config: WebdriverIO.Config = {
   runner: 'local',
-  specs: [`./tests/testScenarios/${testScenario.file}`],
+  specs: [`./tests/${testScenario.file}`],
   suites,
   maxInstances: 1,
   capabilities: [buildCapabilities(platform, scenario, testScenario.name)],
@@ -52,6 +54,16 @@ export const config: WebdriverIO.Config = {
     ui: 'bdd',
     timeout: timeouts.test,
     retries: 0
+  },
+  async beforeSession(_config, capabilities, specs) {
+    try {
+      setSessionNameFromSpecs(capabilities, specs);
+      await initializeTestAccountsForSpecs(specs);
+    } catch (error) {
+      console.error('[UserProvisioning] Pre-session setup failed; stopping worker without opening a mobile session.', error);
+      // WebdriverIO logs and swallows hook errors; terminate only this worker.
+      process.exit(1);
+    }
   },
   async beforeTest(test) {
     executionReporter.startTest(test.parent, test.title, { addAttachment, addStep });

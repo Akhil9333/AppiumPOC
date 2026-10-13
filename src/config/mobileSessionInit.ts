@@ -121,6 +121,36 @@ export function selectedPlatform(): MobilePlatform {
   return mobilePlatform(settingOr('PLATFORM', settingOr('platform', 'Android')));
 }
 
+export function sessionNameForSpecs(specs: string[]): string {
+  if (specs.length !== 1) {
+    throw new Error('Each mobile session must receive exactly one spec to determine its scenario name.');
+  }
+  const specPath = specs[0].startsWith('file:')
+    ? fileURLToPath(specs[0])
+    : specs[0];
+  const fileName = path.basename(specPath);
+  if (!fileName.endsWith('.spec.ts')) {
+    throw new Error(`Cannot determine mobile scenario name from spec "${fileName}". Expected a .spec.ts file.`);
+  }
+  const scenarioName = fileName.slice(0, -'.spec.ts'.length);
+  const customName = setting('LT_TEST_NAME');
+  return customName ? `${customName} - ${scenarioName}` : scenarioName;
+}
+
+export function setSessionNameFromSpecs(
+  capabilities: unknown,
+  specs: string[]
+): void {
+  if (!capabilities || typeof capabilities !== 'object' || !('LT:Options' in capabilities)) {
+    throw new Error('Cannot set mobile scenario name: LT:Options capabilities are missing or invalid.');
+  }
+  const options = capabilities['LT:Options'];
+  if (!options || typeof options !== 'object' || Array.isArray(options)) {
+    throw new Error('Cannot set mobile scenario name: LT:Options capabilities are missing or invalid.');
+  }
+  Object.assign(options, { name: sessionNameForSpecs(specs) });
+}
+
 export function buildCapabilities(
   platform: MobilePlatform,
   scenario: string,
@@ -139,7 +169,7 @@ export function buildCapabilities(
     app,
     isRealMobile: true,
     build: settingOr('LT_BUILD_NAME', scenario),
-    name: settingOr('LT_TEST_NAME', scenario),
+    name: settingOr('LT_TEST_NAME', testName),
     fullReset: true,
     noReset: false,
     // Enables video, device, network, and visual (screenshot) logs on the

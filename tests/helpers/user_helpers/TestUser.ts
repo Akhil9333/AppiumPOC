@@ -13,17 +13,46 @@ import {
 } from '../../../src/config/API-to-Create-New-User.js';
 import { requiredSetting } from '../../../src/config/mobileSessionInit.js';
 import { requiredUserCreationSetting, userCreationSetting } from '../../../src/config/userCreation.js';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { scenarios } from '../../../src/config/runner.js';
 
 let member: string | undefined;
 
 export const testAccounts = {
   get member(): string {
     if (!member) {
-      throw new Error('The member account has not been provisioned. Run initializeTestAccounts before accessing it.');
+      throw new Error('The member account has not been provisioned. User creation must succeed in beforeSession before accessing it.');
     }
     return member;
   }
 };
+
+export function assertTestAccountReady(): void {
+  void testAccounts.member;
+}
+
+export async function initializeTestAccountsForSpecs(specs: string[]): Promise<void> {
+  member = undefined;
+  if (specs.length !== 1) {
+    throw new Error('Member provisioning requires exactly one spec per mobile worker.');
+  }
+  const specPath = specs[0].startsWith('file:') ? fileURLToPath(specs[0]) : specs[0];
+  const definition = Object.values(scenarios).find(value => path.basename(value.file) === path.basename(specPath));
+  if (!definition) {
+    throw new Error(`No provisioning policy is registered for spec "${path.basename(specPath)}".`);
+  }
+  if (!definition.provisionMember) return;
+  if (definition.file === scenarios.lockout.file) {
+    const incorrectPassword = requiredSetting('INCORRECT_APP_PASSWORD', 'APP_INCORRECT_PASSWORD');
+    if (incorrectPassword === requiredSetting('APP_PASSWORD')) {
+      throw new Error('INCORRECT_APP_PASSWORD must differ from APP_PASSWORD for the lockout test.');
+    }
+  }
+  console.log(`[UserProvisioning] Creating member before mobile session for ${path.basename(specPath)}.`);
+  await initializeTestAccounts();
+  console.log(`[UserProvisioning] Member ready for ${path.basename(specPath)}; mobile session may start.`);
+}
 
 export async function initializeTestAccounts(): Promise<void> {
   member = undefined;

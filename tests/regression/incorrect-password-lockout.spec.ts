@@ -1,16 +1,16 @@
 import { browser } from '@wdio/globals';
 import { executionReporter } from '../../src/utils/ExecutionReporter.js';
 import { requiredSetting } from '../../src/config/mobileSessionInit.js';
-import { initializeTestAccounts, testAccounts } from '../helpers/user_helpers/TestUser.js';
+import { assertTestAccountReady, testAccounts } from '../helpers/user_helpers/TestUser.js';
 import { loginWithUsername } from '../helpers/genericFlow.js';
 
 describe('account lockout after incorrect passwords', () => {
-  before('provision a new member account for lockout', async () => {
+  before('verify pre-session lockout member account', () => {
     const incorrectPassword = requiredSetting('INCORRECT_APP_PASSWORD', 'APP_INCORRECT_PASSWORD');
     if (incorrectPassword === requiredSetting('APP_PASSWORD')) {
       throw new Error('INCORRECT_APP_PASSWORD must differ from APP_PASSWORD for the lockout test.');
     }
-    await initializeTestAccounts();
+    assertTestAccountReady();
   });
 
   it('locks the dedicated account after five incorrect attempts', async () => {

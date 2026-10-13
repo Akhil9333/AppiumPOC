@@ -4,11 +4,11 @@ import { MHALandingScreen } from '../../src/pages/MHALandingScreen.js';
 import { MHAQuestionsScreen } from '../../src/pages/MHAQuestionsScreen.js';
 import { MHASectionScreen } from '../../src/pages/MHASectionScreen.js';
 import { MHASuccessfulCompleteScreen } from '../../src/pages/MHASuccessfulCompleteScreen.js';
-import { initializeTestAccounts, testAccounts } from '../helpers/user_helpers/TestUser.js';
+import { assertTestAccountReady, testAccounts } from '../helpers/user_helpers/TestUser.js';
 import { loginToHome } from '../helpers/genericFlow.js';
 
 describe('mental health assessment journey', () => {
-  before('provision a new member account', initializeTestAccounts);
+  before('verify pre-session member account', assertTestAccountReady);
 
   it('completes the assessment and verifies the results', async () => {
     executionReporter.log('MHA_Validate the Low Risk assessment.');
@@ -35,7 +35,7 @@ describe('mental health assessment journey', () => {
     await sectionScreen.clickStartButton();
     executionReporter.log('Clicked start button on MHA questions screen.');
     const questionsScreen = new MHAQuestionsScreen(session);
-    await questionsScreen.completeAssessmentFromResource('mha-assessment.json');
+    await questionsScreen.completeAssessmentFromResource('mha-low-risk-assessment.json');
     executionReporter.log('Validated and answered each MHA question, advancing through every section.');
 
     const completedScreen = new MHASuccessfulCompleteScreen(session);
