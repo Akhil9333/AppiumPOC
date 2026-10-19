@@ -1,7 +1,7 @@
-import { executionReporter } from '../../src/utils/ExecutionReporter.js';
-import { SettingsScreen } from '../../src/pages/SettingsScreen.js';
-import { assertTestAccountReady, testAccounts } from '../helpers/user_helpers/TestUser.js';
-import { loginToHome } from '../helpers/genericFlow.js';
+import { executionReporter } from '../../../src/utils/ExecutionReporter.js';
+import { SettingsScreen } from '../../../src/pages/SettingsScreen.js';
+import { assertTestAccountReady, testAccounts } from '../../helpers/user_helpers/TestUser.js';
+import { loginToHome } from '../../helpers/genericFlow.js';
 
 describe('Mobile login and logout', () => {
   before('verify pre-session member account', assertTestAccountReady);

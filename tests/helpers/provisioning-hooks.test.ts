@@ -9,7 +9,7 @@ import { LoginScreen } from '../../src/pages/LoginScreen.js';
 import { MobileSession } from '../../src/utils/Mobile Utils_Scrolll_Xpath_Timeout.js';
 import { initializeTestAccountsForSpecs, testAccounts } from './user_helpers/TestUser.js';
 
-for (const file of ['login-logout', 'mha-low-risk', 'mha-high-risk', 'incorrect-password-lockout', 'mha-unanswered', 'mha-exit-partial']) {
+for (const file of ['login-logout', 'mha-low-risk', 'mha-high-risk', 'incorrect-password-lockout', 'mha-unanswered', 'mha-exit-partial', 'screening-vaccination']) {
   const outcomes = file === 'incorrect-password-lockout'
     ? ['success', 'api-error', 'same-password']
     : ['success', 'api-error'];
@@ -109,8 +109,12 @@ for (const file of ['login-logout', 'mha-low-risk', 'mha-high-risk', 'incorrect-
         }
         mocha.dispose();
       });
-      const pack = ['login-logout', 'mha-high-risk'].includes(file) ? 'smoke' : 'regression';
-      const specUrl = new URL(`../${pack}/${file}.spec.ts`, import.meta.url);
+      const feature = ['login-logout', 'incorrect-password-lockout'].includes(file)
+        ? 'authentication'
+        : file.startsWith('mha-')
+          ? 'mha'
+          : 'screening';
+      const specUrl = new URL(`../features/${feature}/${file}.spec.ts`, import.meta.url);
       await import(`${specUrl.href}?provisioning=${outcome}`);
       let mobileSessionsStarted = 0;
       if (!succeeds) {

@@ -47,12 +47,12 @@ for (const outcome of ['success', 'failure', 'registration-failure', 'login-even
       };
       const caps = { 'LT:Options': { name: 'before-session-test' } };
       const spec = ${JSON.stringify(outcome === 'screening'
-        ? './tests/regression/screening-vaccination.spec.ts'
-        : './tests/regression/mha-unanswered.spec.ts')};
+        ? './tests/features/screening/screening-vaccination.spec.ts'
+        : './tests/features/mha/mha-unanswered.spec.ts')};
       await executeHooksWithArgs('beforeSession', config.beforeSession, [config, caps, [spec], '0-0']);
       if (${JSON.stringify(outcome)} === 'screening') {
-        assert.equal(requests, 0);
-        assert.throws(() => testAccounts.member, /has not been provisioned/);
+        assert.equal(requests, 9);
+        assert.match(testAccounts.member, /^mdev--/);
       } else {
         assert.equal(requests, 9);
         assert.match(testAccounts.member, /^mdev--/);

@@ -1,13 +1,14 @@
 import type { MobilePlatform } from './mobileSessionInit.js';
 
 export const scenarios = {
-  'loginAndLogout': { file: 'smoke/login-logout.spec.ts', name: 'Login and Logout Functionality Test', provisionMember: true },
-  'lockout': { file: 'regression/incorrect-password-lockout.spec.ts', name: '5 Times Incorrect Password Test', provisionMember: true },
-  'mha-low-risk': { file: 'regression/mha-low-risk.spec.ts', name: 'MHA Low Risk Assessment', provisionMember: true },
-  'mha-high-risk': { file: 'smoke/mha-high-risk.spec.ts', name: 'MHA High Risk Assessment', provisionMember: true },
-  'mha-unanswered': { file: 'regression/mha-unanswered.spec.ts', name: 'MHA Required Answer Validation', provisionMember: true },
-  'mha-exit-partial': { file: 'regression/mha-exit-partial.spec.ts', name: 'MHA Exit Partial Assessment', provisionMember: true },
-  'screening': { file: 'regression/screening-vaccination.spec.ts', name: 'Screening Vaccination Form Submission', provisionMember: false }
+  'loginAndLogout': { file: 'features/authentication/login-logout.spec.ts', name: 'Login and Logout Functionality Test', provisionMember: true },
+  'lockout': { file: 'features/authentication/incorrect-password-lockout.spec.ts', name: '5 Times Incorrect Password Test', provisionMember: true },
+  'mha-low-risk': { file: 'features/mha/mha-low-risk.spec.ts', name: 'MHA Low Risk Assessment', provisionMember: true },
+  'mha-high-risk': { file: 'features/mha/mha-high-risk.spec.ts', name: 'MHA High Risk Assessment', provisionMember: true },
+  'mha-unanswered': { file: 'features/mha/mha-unanswered.spec.ts', name: 'MHA Required Answer Validation', provisionMember: true },
+  'mha-exit-partial': { file: 'features/mha/mha-exit-partial.spec.ts', name: 'MHA Exit Partial Assessment', provisionMember: true },
+  'screening': { file: 'features/screening/screening-vaccination.spec.ts', name: 'Screening Vaccination Form Submission', provisionMember: true },
+  'screening-negative': { file: 'features/screening/screening-vaccination-negative.spec.ts', name: 'Screening Vaccination Missing Proof Validation', provisionMember: true }
 } as const;
 
 export type Scenario = keyof typeof scenarios;

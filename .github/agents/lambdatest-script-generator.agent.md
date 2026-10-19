@@ -35,7 +35,7 @@ Repository-specific conventions and execution approvals below still apply.
 Read the current versions of:
 
 - `package.json`, `tsconfig.json`, `wdio.conf.ts`, and `src/config/runner.ts`.
-- The closest existing spec in `tests/smoke/` or `tests/regression/`.
+- The closest existing spec in `tests/features/`.
 - `tests/helpers/genericFlow.ts` and `tests/helpers/user_helpers/TestUser.ts`.
 - Relevant page objects in `src/pages/` and shared mobile interactions in
   `src/utils/Mobile Utils_Scrolll_Xpath_Timeout.ts`.

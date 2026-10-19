@@ -5,15 +5,15 @@ import { suites } from '../../src/config/runner.js';
 
 test('smoke pack selects only login/logout and high-risk MHA', () => {
   assert.deepEqual(suites.smoke, [
-    './tests/smoke/login-logout.spec.ts',
-    './tests/smoke/mha-high-risk.spec.ts'
+    './tests/features/authentication/login-logout.spec.ts',
+    './tests/features/mha/mha-high-risk.spec.ts'
   ]);
 });
 
 test('regression pack selects only password lockout and low-risk MHA', () => {
   assert.deepEqual(suites.regression, [
-    './tests/regression/incorrect-password-lockout.spec.ts',
-    './tests/regression/mha-low-risk.spec.ts'
+    './tests/features/authentication/incorrect-password-lockout.spec.ts',
+    './tests/features/mha/mha-low-risk.spec.ts'
   ]);
 });
 

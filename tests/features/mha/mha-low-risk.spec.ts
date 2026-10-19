@@ -1,11 +1,11 @@
-import { executionReporter } from '../../src/utils/ExecutionReporter.js';
-import { ActivityScreen } from '../../src/pages/ActivityScreen.js';
-import { MHALandingScreen } from '../../src/pages/MHALandingScreen.js';
-import { MHAQuestionsScreen } from '../../src/pages/MHAQuestionsScreen.js';
-import { MHASectionScreen } from '../../src/pages/MHASectionScreen.js';
-import { MHASuccessfulCompleteScreen } from '../../src/pages/MHASuccessfulCompleteScreen.js';
-import { assertTestAccountReady, testAccounts } from '../helpers/user_helpers/TestUser.js';
-import { loginToHome } from '../helpers/genericFlow.js';
+import { executionReporter } from '../../../src/utils/ExecutionReporter.js';
+import { ActivityScreen } from '../../../src/pages/ActivityScreen.js';
+import { MHALandingScreen } from '../../../src/pages/MHALandingScreen.js';
+import { MHAQuestionsScreen } from '../../../src/pages/MHAQuestionsScreen.js';
+import { MHASectionScreen } from '../../../src/pages/MHASectionScreen.js';
+import { MHASuccessfulCompleteScreen } from '../../../src/pages/MHASuccessfulCompleteScreen.js';
+import { assertTestAccountReady, testAccounts } from '../../helpers/user_helpers/TestUser.js';
+import { loginToHome } from '../../helpers/genericFlow.js';
 
 describe('mental health assessment journey', () => {
   before('verify pre-session member account', assertTestAccountReady);

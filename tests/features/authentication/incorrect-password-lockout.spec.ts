@@ -1,8 +1,8 @@
 import { browser } from '@wdio/globals';
-import { executionReporter } from '../../src/utils/ExecutionReporter.js';
-import { requiredSetting } from '../../src/config/mobileSessionInit.js';
-import { assertTestAccountReady, testAccounts } from '../helpers/user_helpers/TestUser.js';
-import { loginWithUsername } from '../helpers/genericFlow.js';
+import { executionReporter } from '../../../src/utils/ExecutionReporter.js';
+import { requiredSetting } from '../../../src/config/mobileSessionInit.js';
+import { assertTestAccountReady, testAccounts } from '../../helpers/user_helpers/TestUser.js';
+import { loginWithUsername } from '../../helpers/genericFlow.js';
 
 describe('account lockout after incorrect passwords', () => {
   before('verify pre-session lockout member account', () => {

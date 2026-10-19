@@ -168,8 +168,9 @@ These named WebdriverIO suites run only the listed specs, sequentially
 provisioned member for each spec. They use the existing cloud, platform, app,
 and user-creation settings; no credentials are stored in the suite definitions.
 Regression also requires `INCORRECT_APP_PASSWORD`.
-Specs are resolved from `tests/smoke/` and `tests/regression/`; the scenario
-registry stores paths relative to `tests/`, not the former `tests/testScenarios/`.
+Mobile specs are organized by feature under `tests/features/`; the scenario
+registry stores paths relative to `tests/`. Smoke and regression remain named
+packs that group feature specs without duplicating them.
 Direct runner selection is supported with
 `npm test -- --suite smoke` or `npm test -- --suite regression`; leave
 `LT_SCENARIO` unset or use a valid scenario from `src/config/runner.ts`.
@@ -207,7 +208,32 @@ LT_SCENARIO=mha-exit-partial PLATFORM=Android npm test
 LT_SCENARIO=mha-exit-partial PLATFORM=iOS npm test
 ```
 
-Incomplete submission, exit/resume, offline submission, duplicate submission,
+### Screening negative test
+
+The opt-in `screening-negative` scenario selects a screening type and date but
+does not upload proof. It verifies that submission does not succeed and the
+form remains available. Both `test:screening` and `test:screening-negative`
+prompt for Android or iOS and the user-creation environment in an interactive
+terminal. Choose MDEV or CA TEST (CATEST); CA DEV is also available for
+existing profile configurations. At the environment prompt, enter `1` for
+MDEV, `2` for CA TEST, or `3` for CA DEV.
+
+```bash
+npm run test:screening-negative
+```
+
+For non-interactive runs, use the direct runner scripts and set `PLATFORM`.
+Set `VG_ENVIRONMENT` to `mdev`, `ca-test`, or `ca-dev` as needed (defaults to
+`mdev`):
+
+```bash
+VG_ENVIRONMENT=ca-test PLATFORM=Android npm run test:screening:run
+VG_ENVIRONMENT=ca-test PLATFORM=iOS npm run test:screening:run
+VG_ENVIRONMENT=mdev PLATFORM=Android npm run test:screening-negative:run
+VG_ENVIRONMENT=mdev PLATFORM=iOS npm run test:screening-negative:run
+```
+
+Other incomplete submission cases, offline submission, duplicate submission,
 answer revision and session expiry are not yet automated. Their expected
 behavior, controls and backend verification or fault-injection mechanisms
 must be confirmed before adding executable specs.
@@ -250,6 +276,7 @@ npm run test:mha
 PLATFORM=Android npm run test:mha-high-risk
 PLATFORM=iOS npm run test:mha-high-risk
 npm run test:screening
+npm run test:screening-negative
 ```
 
 The login, lockout, MHA, and screening commands use `platform` / `PLATFORM` if set;
@@ -298,20 +325,22 @@ runner with the existing TypeScript loader.
 ```text
 src/
   config/       # Credentials, capabilities, scenario registry, timeouts
-  screens/      # Platform-aware page objects and assertions
+  pages/        # Platform-aware page objects and assertions
   utils/        # Mobile session interactions, reporting, browser launching
 tests/
-  fixtures/     # Non-secret account data and assessment JSON
-  helpers/      # Reusable navigation, login, and home-screen flows
-  specs/        # Mocha mobile scenarios (*.spec.ts)
-  unit/         # Local regression tests (*.test.ts)
+  features/
+    authentication/
+    mha/
+    screening/   # Mocha mobile scenarios grouped by feature
+  fixtures/     # Assessment JSON input data
+  helpers/      # Reusable flows plus local helper tests (*.test.ts)
 wdio.conf.ts    # Runner settings and session/reporting hooks
 ```
 
-Five specs cover login/logout (Android and iOS), lockout, MHA low risk, MHA high
-risk, and screening/vaccination. `src/config/runner.ts` contains the
-scenario-to-spec registry and smoke/regression suite definitions. Common flows stay in helpers, while
-screen-specific locators and interactions stay in page objects.
+Feature folders contain login/logout, lockout, MHA, and screening/vaccination
+specs. `src/config/runner.ts` maps scenario names to feature specs and defines
+smoke/regression packs. Common flows stay in helpers, while screen-specific
+locators and interactions stay in page objects.
 
 Each test writes its execution log, screenshots, and (on failure) page source to
 a timestamped directory under `target/test-artifacts/`. Generated artifacts,

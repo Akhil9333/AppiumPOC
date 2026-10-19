@@ -22,66 +22,123 @@ interface AssessmentDocument {
   };
 }
 
+const locators = {
+  firstSectionHeader: {
+    android: "//*[@resource-id='tsection_name_text']",
+    ios: "//*[@name='tsection_name_text']"
+  },
+  sectionNextButton: {
+    android: "//*[@resource-id='btn_ctrl_btnnext_001']",
+    ios: "//*[@name='btn_ctrl_btnnext_001']"
+  },
+  questionNextButton: {
+    android: "//*[@resource-id='btn_vg_next_button'] | //*[@resource-id='btn_vg_submit_button']",
+    ios: "//*[@name='btn_vg_next_button'] | //*[@name='btn_vg_submit_button']"
+  },
+  submitAssessmentButton: {
+    android: "//*[@resource-id='btn_vg_submit_button']",
+    ios: "//*[@name='btn_vg_submit_button']"
+  },
+  unansweredQuestionNextButton: {
+    android: "//*[@resource-id='btn_vg_next_button']",
+    ios: "//*[@name='btn_vg_next_button']"
+  },
+  closeAssessmentButton: {
+    android: "//*[@resource-id='vg_close_button']",
+    ios: "//*[@name='vg_close_button']"
+  },
+  exitConfirmation: {
+    android: "//*[@resource-id='txtareyousureyouwanttoclosethesurvey_001']",
+    ios: "//*[@name='txtareyousureyouwanttoclosethesurvey_001']"
+  },
+  confirmExitButton: {
+    android: "//*[@resource-id='ctrl_txtyes_001']",
+    ios: "//*[@name='ctrl_txtyes_001']"
+  },
+  firstQuestion: {
+    android: "//*[@resource-id='question_0']",
+    ios: "//*[@name='question_0']"
+  },
+  sectionName: {
+    android: "//*[@resource-id='section_name_text']",
+    ios: "//*[@name='section_name_text']"
+  },
+  firstAnswerOption: {
+    android: "//*[@resource-id='answer_option_0']",
+    ios: "//*[@name='answer_option_0']"
+  },
+  question: (questionIndex: number) => ({
+    android: `//*[@resource-id='question_${questionIndex}']`,
+    ios: `~question_${questionIndex}`
+  }),
+  answerOption: (answer: string) => {
+    const normalizedAnswer = normalizeConfiguredText(answer);
+    const answerValue = xpathLiteral(normalizedAnswer);
+    const android = `//*[contains(@resource-id, 'answer_option_') and normalize-space(@content-desc)=${answerValue}]`;
+    const labelPattern = `[ \\t\\r\\n]*${normalizedAnswer
+      .split(' ')
+      .map(part => part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+      .join('[ \\t\\r\\n]+')}[ \\t\\r\\n]*`;
+    const ios = `-ios predicate string:name CONTAINS "answer_option_" AND label MATCHES ${JSON.stringify(labelPattern)}`;
+    return { android, ios };
+  }
+} as const;
+
 export class MHAQuestionsScreen extends BaseScreen {
   constructor(session: MobileSession) {
     super(session);
   }
 
   async assert1stSectionHeader(): Promise<void> {
-    await this.assertTextEquals(await this.element("//*[@resource-id='tsection_name_text']", 
-      "//*[@name='tsection_name_text']"), 'Mental health history');
+    await this.assertTextEquals(await this.element(locators.firstSectionHeader.android, locators.firstSectionHeader.ios), 'Mental health history');
   }
 
   clickSectionNextButton(): Promise<void> {
-    return this.click("//*[@resource-id='btn_ctrl_btnnext_001']", 
-      "//*[@name='btn_ctrl_btnnext_001']");
+    return this.click(locators.sectionNextButton.android, locators.sectionNextButton.ios);
   }
 
   clickQuestionNextButton(): Promise<void> {
-    return this.click("//*[@resource-id='btn_vg_next_button'] | //*[@resource-id='btn_vg_submit_button']",
-       "//*[@name='btn_vg_next_button'] | //*[@name='btn_vg_submit_button']");
+    return this.click(locators.questionNextButton.android, locators.questionNextButton.ios);
   }
 
   clickSubmitAssessmentButton(): Promise<void> {
-    return this.click("//*[@resource-id='btn_vg_submit_button']", 
-      "//*[@name='btn_vg_submit_button']");
+    return this.click(locators.submitAssessmentButton.android, locators.submitAssessmentButton.ios);
   }
 
   async assertUnansweredQuestionNextDisabled(expectedQuestion: string): Promise<void> {
     await this.assertQuestion(0, normalizeConfiguredText(expectedQuestion));
     const nextButton = await this.element(
-      "//*[@resource-id='btn_vg_next_button']", "//*[@name='btn_vg_next_button']"
+      locators.unansweredQuestionNextButton.android, locators.unansweredQuestionNextButton.ios
     );
     assert.equal(await nextButton.isEnabled(), false, 'MHA Next must be disabled before selecting an answer');
     await this.assertQuestion(0, normalizeConfiguredText(expectedQuestion));
   }
 
   closeAssessment(): Promise<void> {
-    return this.click("//*[@resource-id='vg_close_button']", "//*[@name='vg_close_button']");
+    return this.click(locators.closeAssessmentButton.android, locators.closeAssessmentButton.ios);
   }
 
   async confirmAssessmentExit(): Promise<void> {
     await this.assertTextEquals(
       await this.element(
-        "//*[@resource-id='txtareyousureyouwanttoclosethesurvey_001']",
-        "//*[@name='txtareyousureyouwanttoclosethesurvey_001']"
+        locators.exitConfirmation.android,
+        locators.exitConfirmation.ios
       ),
       'Are you sure you want to exit this assessment?'
     );
-    await this.click("//*[@resource-id='ctrl_txtyes_001']", "//*[@name='ctrl_txtyes_001']");
+    await this.click(locators.confirmExitButton.android, locators.confirmExitButton.ios);
   }
 
   async assertquestions(): Promise<void> {
-    await this.assertTextEquals(await this.element("//*[@resource-id='question_0']", 
-      "//*[@name='question_0']"), 'Mental health history');
+    await this.assertTextEquals(await this.element(locators.firstQuestion.android, locators.firstQuestion.ios), 'Mental health history');
   }
 
   async assertSectionName(expectedSectionName: string): Promise<void> {
-    await this.assertTextEquals(await this.element("//*[@resource-id='section_name_text']", "//*[@name='section_name_text']"), expectedSectionName);
+    await this.assertTextEquals(await this.element(locators.sectionName.android, locators.sectionName.ios), expectedSectionName);
   }
 
   async assertAnswer(): Promise<void> {
-    await this.assertTextEquals(await this.element("//*[@resource-id='answer_option_0']", "//*[@name='answer_option_0']"), 'Mental health history');
+    await this.assertTextEquals(await this.element(locators.firstAnswerOption.android, locators.firstAnswerOption.ios), 'Mental health history');
   }
 
   async enterAnswerAndSelect(answer: string): Promise<void> {
@@ -142,8 +199,9 @@ export class MHAQuestionsScreen extends BaseScreen {
   }
 
   private async assertQuestion(questionIndex: number, expectedQuestion: string): Promise<void> {
+    const questionLocator = locators.question(questionIndex);
     await this.assertTextEquals(
-      await this.element(`//*[@resource-id='question_${questionIndex}']`, `~question_${questionIndex}`),
+      await this.element(questionLocator.android, questionLocator.ios),
       expectedQuestion
     );
   }
@@ -154,14 +212,8 @@ export class MHAQuestionsScreen extends BaseScreen {
       throw new TypeError('Answer must not be blank');
     }
 
-    const answerValue = xpathLiteral(normalizedAnswer);
-    const androidAnswerXpath = `//*[contains(@resource-id, 'answer_option_') and normalize-space(@content-desc)=${answerValue}]`;
-    const labelPattern = `[ \\t\\r\\n]*${normalizedAnswer
-      .split(' ')
-      .map(part => part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-      .join('[ \\t\\r\\n]+')}[ \\t\\r\\n]*`;
-    const iosAnswerSelector = `-ios predicate string:name CONTAINS "answer_option_" AND label MATCHES ${JSON.stringify(labelPattern)}`;
-    const selector = this.session.getPlatformLocator(androidAnswerXpath, iosAnswerSelector);
+    const answerLocator = locators.answerOption(normalizedAnswer);
+    const selector = this.session.getPlatformLocator(answerLocator.android, answerLocator.ios);
     this.recordStep(`Selecting answer for MHA question ${questionIndex + 1}: ${normalizedAnswer}`);
     await this.session.clickElement(selector);
   }

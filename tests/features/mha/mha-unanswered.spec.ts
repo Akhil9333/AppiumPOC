@@ -1,9 +1,9 @@
 import { readFile } from 'node:fs/promises';
-import { executionReporter } from '../../src/utils/ExecutionReporter.js';
-import { MHAQuestionsScreen } from '../../src/pages/MHAQuestionsScreen.js';
-import { MHASectionScreen } from '../../src/pages/MHASectionScreen.js';
-import { assertTestAccountReady, testAccounts } from '../helpers/user_helpers/TestUser.js';
-import { loginToHome } from '../helpers/genericFlow.js';
+import { executionReporter } from '../../../src/utils/ExecutionReporter.js';
+import { MHAQuestionsScreen } from '../../../src/pages/MHAQuestionsScreen.js';
+import { MHASectionScreen } from '../../../src/pages/MHASectionScreen.js';
+import { assertTestAccountReady, testAccounts } from '../../helpers/user_helpers/TestUser.js';
+import { loginToHome } from '../../helpers/genericFlow.js';
 
 describe('mental health assessment required answer validation', () => {
   before('verify pre-session member account', assertTestAccountReady);
@@ -20,7 +20,7 @@ describe('mental health assessment required answer validation', () => {
     await new MHASectionScreen(session).clickStartButton();
 
     const fixture = JSON.parse(await readFile(
-      new URL('../fixtures/mha-low-risk-assessment.json', import.meta.url), 'utf8'
+      new URL('../../fixtures/mha-low-risk-assessment.json', import.meta.url), 'utf8'
     ));
     const firstQuestion: unknown = fixture['Mental health assessment']?.Sections?.[0]?.Questions?.[0]?.Name;
     if (typeof firstQuestion !== 'string' || !firstQuestion.trim()) {
